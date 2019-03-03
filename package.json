@@ -10,6 +10,11 @@
 	"categories": [
 		"Programming Languages"
 	],
+	"activationEvents": [
+		"onCommand:extension.netlinx_compile",
+		"onCommand:extension.netlinx_help"
+	],
+	"main": "./out/extension",
 	"contributes": {
 		"commands": [
 			{
@@ -46,14 +51,19 @@
 		"menus": {
 			"editor/context": [
 				{
-					"when": "resourceLangId == netlinx",
 					"command": "extension.netlinx_help",
-					"group": "navigation"
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-source"
 				},
 				{
-					"when": "resourceLangId == netlinx",
+					"command": "extension.netlinx_help",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
 					"command": "extension.netlinx_compile",
-					"group": "navigation"
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-source"
 				}
 			]
 		},
@@ -61,34 +71,56 @@
 			{
 				"command": "extension.netlinx_compile",
 				"key": "ctrl+f12",
-				"when": "resourceLangId == netlinx"
+				"when": "resourceLangId == netlinx-source"
 			},
 			{
 				"command": "extension.netlinx_help",
 				"key": "ctrl+f1",
-				"when": "resourceLangId == netlinx"
+				"when": "resourceLangId == netlinx-source"
+			},
+			{
+				"command": "extension.netlinx_help",
+				"key": "ctrl+f1",
+				"when": "resourceLangId == netlinx-include"
 			}
 		],
 		"languages": [
 			{
-				"id": "netlinx",
+				"id": "netlinx-source",
 				"aliases": [
-					"AMX",
+					"AMX-AXS",
 					"netlinx"
 				],
 				"extensions": [
-					".axs",
-					".axi"
+					".axs"
+				],
+				"configuration": "./language-configuration.json"
+			},
+			{
+				"id": "netlinx-include",
+				"aliases": [
+					"AMX-AXI",
+					"netlinx"
+				],
+				"extensions": [
+					".axi",
+					".axb"
 				],
 				"configuration": "./language-configuration.json"
 			}
 		],
 		"grammars": [
 			{
-				"language": "netlinx",
+				"language": "netlinx-source",
+				"scopeName": "source.netlinx",
+				"path": "./syntaxes/amx-netlinx.tmLanguage.json"
+			},
+			{
+				"language": "netlinx-include",
 				"scopeName": "source.netlinx",
 				"path": "./syntaxes/amx-netlinx.tmLanguage.json"
 			}
+
 		]
 	},
 	"scripts": {
