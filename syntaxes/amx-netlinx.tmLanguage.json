@@ -63,12 +63,16 @@
       "comment": "Numbers",
       "patterns": [
         {
+          "name": "keyword.other.netlinx",
+          "match": "([0-9]{1,5}:[0-9]{1,5}:[0-9]{1,5})"
+        },
+        {
           "name": "constant.numeric.netlinx",
-          "match": "[-]?[.]?\\b([0-9]+)"
+          "match": "([-]?[.]?\\b[0-9\\.]+)[^:]"
         },
         {
           "name": "constant.numeric.hex.netlinx",
-          "match": "(\\$[0-9a-fA-F]+)"
+          "match": "((?:\\$|0x)[0-9a-fA-F]+)[^:]*"
         }
       ]
     },
@@ -161,8 +165,12 @@
           "match": "(?i)\\b(DEFINE_CONSTANT|DEFINE_DEVICE|DEFINE_LATCHING|DEFINE_MUTUALLY_EXCLUSIVE|DEFINE_PROGRAM|DEFINE_START|DEFINE_TOGGLING|DEFINE_VARIABLE|DEFINE_COMBINE|DEFINE_CONNECT_LEVEL)"
         },
         {
-          "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(DEFINE_CALL)"
+          "name": "meta.function.netlinx",
+          "match": "(?i)\\b(DEFINE_CALL)\\s+\\\"(\\w+)\\\"",
+          "captures": {
+            "1" : { "name" : "keyword.control.netlinx" },
+            "2" : { "name" : "entity.name.function.netlinx" }
+          }
         },
         {
           "name": "entity.name.section.netlinx",
@@ -197,31 +205,31 @@
       "comment": "Define Events",
       "patterns": [
         {
-          "name": "entity.name.section.event.netlinx",
+          "name": "entity.name.type.netlinx",
           "match": "(?i)\\b(DATA_EVENT|CHANNEL_EVENT|LEVEL_EVENT|BUTTON_EVENT|TIMELINE_EVENT|CUSTOM_EVENT)"
         },
         {
-          "name": "entity.name.section.event.properties.netlinx",
+          "name": "support.constant.netlinx",
           "match": "(?i)\\b(DATA.DEVICE.NUMBER|DATA.DEVICE.PORT|DATA.DEVICE.SYSTEM|DATA.DEVICE|DATA.NUMBER|DATA.SourceIP|DATA.SourcePort|DATA.TEXT)"
         },
         {
-          "name": "entity.name.section.event.properties.netlinx",
+          "name": "support.constant.netlinx",
           "match": "(?i)\\b(CHANNEL.DEVICE.NUMBER|CHANNEL.DEVICE.PORT|CHANNEL.DEVICE.SYSTEM|CHANNEL.DEVICE|CHANNEL.CHANNEL)"
         },
         {
-          "name": "entity.name.section.event.properties.netlinx",
+          "name": "support.constant.netlinx",
           "match": "(?i)\\b(LEVEL.INPUT.DEVICE.NUMBER|LEVEL.INPUT.DEVICE.PORT|LEVEL.INPUT.DEVICE.SYSTEM|LEVEL.INPUT.DEVICE|LEVEL.INPUT.LEVEL|LEVEL.INPUT|LEVEL.VALUE)"
         },
         {
-          "name": "entity.name.section.event.properties.netlinx",
+          "name": "support.constant.netlinx",
           "match": "(?i)\\b(BUTTON.INPUT.CHANNEL|BUTTON.INPUT.DEVICE.NUMBER|BUTTON.INPUT.DEVICE.PORT|BUTTON.INPUT.DEVICE.SYSTEM|BUTTON.INPUT.DEVICE|BUTTON.INPUT|BUTTON.HOLDTIME)"
         },
         {
-          "name": "entity.name.section.event.properties.netlinx",
+          "name": "support.constant.netlinx",
           "match": "(?i)\\b(TIMELINE.ID|TIMELINE.SEQUENCE|TIMELINE.TIME|TIMELINE.RELATIVE|TIMELINE.REPETITION)"
         },
         {
-          "name": "entity.name.section.event.properties.netlinx",
+          "name": "support.constant.netlinx",
           "match": "(?i)\\b(CUSTOM.DEVICE.NUMBER|CUSTOM.DEVICE.PORT|CUSTOM.DEVICE.SYSTEM|CUSTOM.DEVICE|CUSTOM.ID|CUSTOM.TYPE|CUSTOM.FLAG|CUSTOM.VALUE1|CUSTOM.VALUE2|CUSTOM.VALUE3|CUSTOM.TEXT|CUSTOM.ENCODE|CUSTOM.SOURCEDEV.NUMBER|CUSTOM.SOURCEDEV.PORT|CUSTOM.SOURCEDEV.SYSTEM|CUSTOM.SOURCEDEV)"
         }
       ]
@@ -413,20 +421,14 @@
       "comment": "NetLinx variables",
       "patterns": [
         {
-          "name": "storage.modifier.netlinx",
-          "match": "(?i)\\b(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT)"
-        },
-        {
-          "name": "storage.modifier.netlinx",
-          "match": "(?i)\\b(LOCAL_VAR|STACK_VAR)"
-        },
-        {
-          "name": "storage.type.intrinsic.netlinx",
-          "match": "(?i)\\b(CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)"
-        },
-        {
-          "name": "storage.type.structured.netlinx",
-          "match": "(?i)\\b(DEV |DEVCHAN|DEVLEV)"
+          "name": "meta.variable.netlinx",
+          "comment": "Full variable or constant definition line",
+          "match": "(?i)^\\s*(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT|LOCAL_VAR|STACK_VAR)?\\s*(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)\\s*([\\w]+)(?:\\[[a-zA-Z0-9_]*\\])*(?:[ =\\t]+)*",
+          "captures": {
+            "1" : { "name": "storage.modifier.netlinx" },
+            "2" : { "name": "storage.type.intrinsic.netlinx" },
+            "3" : { "name": "variable.other.netlinx" }
+          }
         }
       ]
     },
