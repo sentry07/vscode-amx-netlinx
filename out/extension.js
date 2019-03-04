@@ -19,6 +19,16 @@ function activate(context) {
     let netlinx_compile = vscode.commands.registerCommand('extension.netlinx_compile', () => {
         processNetlinx();
     });
+    let transfer_command = vscode.commands.registerCommand("extension.netlinx_transfer", () => {
+        let transferLocation = vscode.workspace.getConfiguration("netlinx").transferLocation;
+        let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
+        term.sendText("\"" + transferLocation + "\"");
+    });
+    let diag_command = vscode.commands.registerCommand("extension.netlinx_diag", () => {
+        let diagLocation = vscode.workspace.getConfiguration("netlinx").diagLocation;
+        let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
+        term.sendText("\"" + diagLocation + "\"");
+    });
     let help_command = vscode.commands.registerCommand("extension.netlinx_help", () => {
         let helpLocation = vscode.workspace.getConfiguration("netlinx").helpLocation;
         let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
@@ -53,7 +63,7 @@ function processNetlinx(args) {
 class NetlinxCompiler {
     constructor() {
         this.filepaths = [];
-        this.compilerPath = "\"" + vscode.workspace.getConfiguration("netlinx").compiler + "\"";
+        this.compilerPath = "\"" + vscode.workspace.getConfiguration("netlinx").compilerLocation + "\"";
         console.log(this.compilerPath);
     }
     buildCommand(args) {
