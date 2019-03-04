@@ -4,9 +4,9 @@ VSCode Extension which adds syntax highlighting and provides commands in the com
 
 ## Features
 
-Syntax highlighting, compiler, show help file, run Netlinx Diagnostics.
+Syntax highlighting, compiler, show help file, File Transfer and Netlinx Diagnostics if installed.
 
-TODO: code file-type icons, maybe better intellisense + autocompletes.
+TODO: language server development, snippet support
 
 This extension contributes the following commands:
 
