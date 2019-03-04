@@ -17,8 +17,8 @@ This extension contributes the following commands:
 
 This extension contributes the following settings:
 
-* `netlinx.compiler`: sets the path of the Simpl+ compiler. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths.
-* `netlinx.helpLocation`: sets the path of the SIMPL+ reference guide. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths.
+* `netlinx.compiler`: sets the path of the Netlinx compiler. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths.
+* `netlinx.helpLocation`: sets the path of the Netlinx reference guide. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths.
 * `netlinx.terminalLocation`: sets path of the default windows cmd.exe. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths. 
 
 ## Keybindings and Menus
