@@ -10,6 +10,7 @@ TODO: language server development, snippet support
 
 This extension contributes the following commands:
 
+* `extension.netlinx_format`: Fixes the block indentation of the currently open AXS file.
 * `extension.netlinx_compile`: Compiles the currently open AXS file.
 * `extension.netlinx_help`: Opens the AMX Netlinx help reference file.
 * `extension.netlinx_diag`: Opens the AMX Netlinx Diagnostics executable (if installed).
@@ -31,8 +32,9 @@ This extension contributes the following settings:
 All commands are added to the right click context menu of the editor tab, and the following keybindings have been added.
 
 * `ctrl+shift+F1`: Opens Netlinx Help.
-* `ctrl+shift+F2`: Opens File Transfer Utility.
+* `ctrl+shift+F2`: Runs Netlinx Indentation Fixer.
 * `ctrl+shift+F3`: Opens Netlinx Diagnostics.
+* `ctrl+shift+F4`: Opens File Transfer Utility.
 * `ctrl+F12`: Compiles current file.
 
 ## Snippets
