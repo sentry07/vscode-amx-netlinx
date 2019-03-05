@@ -45,6 +45,11 @@ All commands are added to the right click context menu of the editor tab, and th
 
 ## Release Notes
 
+* `extension.netlinx_compile` requires Netlinx Studio 3.x or 4.x to be installed. Preferably 4.x. This is freely available at AMX.com.
+* `extension.netlinx_diag` requires Netlinx Diagnostics to be installed. This is freely available at AMX.com.
+* `extension.netlinx_transfer` requires File Transfer Utility 2 to be installed. This is not freely available, but you can try to get it from the following URL. Login may be required.
+    https://trade.amx.com/techcenter/downloadConfirm.asp?fn=/assets/applicationFiles/FT2Setup.exe
+
 ### 1.0.0
 
 - Initial release

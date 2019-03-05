@@ -72,7 +72,7 @@ function fixIndentation(args) {
     if (doc.languageId === "netlinx-source") {
         let indentLevel = 0;
         let outputText = "";
-        let reIncrease = new RegExp("^((?!\\/\\/).)*(\\{[^{}\\v]*|\\([^()\\v]*|\\[[^\\[\\]\\v]*)$");
+        let reIncrease = new RegExp("^((?!\\/\\/).)*(\\{[^{}\\v]*|\\([^()\\*\\v]*|\\[[^\\[\\]\\v]*)$");
         let reDecrease = new RegExp("^((?!.*?\\/\\*).*\\*\\/)?\\s*[\\}\\]\\)].*$");
         let docText = editor.document.getText();
         console.debug(docText);
