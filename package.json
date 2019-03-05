@@ -11,6 +11,7 @@
 		"Programming Languages"
 	],
 	"activationEvents": [
+		"onCommand:extension.netlinx_format",
 		"onCommand:extension.netlinx_compile",
 		"onCommand:extension.netlinx_transfer",
 		"onCommand:extension.netlinx_diag",
@@ -19,6 +20,10 @@
 	"main": "./out/extension",
 	"contributes": {
 		"commands": [
+			{
+				"command": "extension.netlinx_format",
+				"title": "Netlinx Beautify Code"
+			},
 			{
 				"command": "extension.netlinx_compile",
 				"title": "Netlinx Compile Current File"
@@ -71,6 +76,16 @@
 		"menus": {
 			"editor/context": [
 				{
+					"command": "extension.netlinx_format",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_format",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
 					"command": "extension.netlinx_transfer",
 					"group": "navigation",
 					"when": "resourceLangId == netlinx-source"
@@ -110,11 +125,21 @@
 		"keybindings": [
 			{
 				"command": "extension.netlinx_transfer",
-				"key": "ctrl+shift+f2",
+				"key": "ctrl+shift+f4",
 				"when": "resourceLangId == netlinx-source"
 			},
 			{
 				"command": "extension.netlinx_transfer",
+				"key": "ctrl+shift+f4",
+				"when": "resourceLangId == netlinx-include"
+			},
+			{
+				"command": "extension.netlinx_format",
+				"key": "ctrl+shift+f2",
+				"when": "resourceLangId == netlinx-source"
+			},
+			{
+				"command": "extension.netlinx_format",
 				"key": "ctrl+shift+f2",
 				"when": "resourceLangId == netlinx-include"
 			},
