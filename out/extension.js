@@ -45,6 +45,15 @@ function compileNetlinx(args) {
         savedDoc.then(() => {
             let compiler = new NetlinxCompiler();
             compiler.filepaths.push(doc.fileName);
+            if (vscode.workspace.getConfiguration("netlinx").includesLocation.length > 0) {
+                compiler.filepaths.push("-I" + vscode.workspace.getConfiguration("netlinx").includesLocation);
+            }
+            if (vscode.workspace.getConfiguration("netlinx").librariesLocation.length > 0) {
+                compiler.filepaths.push("-L" + vscode.workspace.getConfiguration("netlinx").librariesLocation);
+            }
+            if (vscode.workspace.getConfiguration("netlinx").modulesLocation.length > 0) {
+                compiler.filepaths.push("-M" + vscode.workspace.getConfiguration("netlinx").modulesLocation);
+            }
             let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
             term.show();
             term.sendText(compiler.buildCommand(args));
@@ -69,7 +78,7 @@ function fixIndentation(args) {
                                      firstLine.range.start.character, 
                                      doc.lineCount - 1, 
                                      lastLine.range.end.character);
-    if (doc.languageId === "netlinx-source") {
+    if (doc.languageId === "netlinx-source" || doc.languageId === "netlinx-include") {
         let indentLevel = 0;
         let outputText = "";
         let reIncrease = new RegExp("^((?!\\/\\/).)*(\\{[^{}\\v]*|\\([^()\\*\\v]*|\\[[^\\[\\]\\v]*)$");

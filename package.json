@@ -69,6 +69,21 @@
 						"type": "string",
 						"default": "C:\\WINDOWS\\System32\\cmd.exe",
 						"description": "Location of the default windows cmd.exe"
+					},
+					"netlinx.includesLocation": {
+						"type": "string",
+						"default": "",
+						"description": "Location of your global Netlinx includes folder for compiling. Leave blank if none."
+					},
+					"netlinx.librariesLocation": {
+						"type": "string",
+						"default": "",
+						"description": "Location of your global Netlinx libraries folder for compiling. Leave blank if none."
+					},
+					"netlinx.modulesLocation": {
+						"type": "string",
+						"default": "",
+						"description": "Location of your global Netlinx modules folder for compiling. Leave blank if none."
 					}
 				}
 			}

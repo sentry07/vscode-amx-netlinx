@@ -19,12 +19,16 @@ This extension contributes the following commands:
 ## Extension Settings
 
 This extension contributes the following settings:
+For locations, please use the double \ between folder names.
 
-* `netlinx.compilerLocation`: sets the path of the Netlinx compiler. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths.
-* `netlinx.helpLocation`: sets the path of the Netlinx reference guide. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths.
-* `netlinx.diagLocation`: sets the path of the Netlinx Diagnostics program. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths.
-* `netlinx.ftLocation`: sets the path of the Netlinx File Transfer utility. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths.
-* `netlinx.terminalLocation`: sets path of the default windows cmd.exe. Can be set to a custom path via the user settings. Please use the double \ to specify directory paths. 
+* `netlinx.compilerLocation`: sets the path of the Netlinx compiler. 
+* `netlinx.helpLocation`: sets the path of the Netlinx reference guide.
+* `netlinx.diagLocation`: sets the path of the Netlinx Diagnostics program.
+* `netlinx.ftLocation`: sets the path of the Netlinx File Transfer utility.
+* `netlinx.terminalLocation`: sets path of the default windows cmd.exe.
+* `netlinx.includesLocation`: sets path of global Netlinx includes folder. Separate multiple paths with semicolons(;). 
+* `netlinx.libraryLocation`: sets path of global Netlinx libraries folder. Separate multiple paths with semicolons(;). 
+* `netlinx.modulesLocation`: sets path of global Netlinx modules folder. Separate multiple paths with semicolons(;). 
 
 
 ## Keybindings and Menus
