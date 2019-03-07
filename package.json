@@ -2,7 +2,7 @@
 	"name": "amx-netlinx",
 	"displayName": "AMX Netlinx",
 	"description": "Extension for AMX Netlinx. Includes syntax highlighting and compiling.",
-	"version": "0.0.1",
+	"version": "0.1.1",
 	"publisher": "ewalters",
 	"engines": {
 		"vscode": "^1.20.0"
@@ -15,7 +15,10 @@
 		"onCommand:extension.netlinx_compile",
 		"onCommand:extension.netlinx_transfer",
 		"onCommand:extension.netlinx_diag",
-		"onCommand:extension.netlinx_help"
+		"onCommand:extension.netlinx_help",
+		"onCommand:extension.netlinx_openincludefolder",
+		"onCommand:extension.netlinx_openlibraryfolder",
+		"onCommand:extension.netlinx_openmodulefolder"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -39,11 +42,23 @@
 			{
 				"command": "extension.netlinx_help",
 				"title": "Open Netlinx Help Reference"
+			},
+			{
+				"command": "extension.netlinx_openincludefolder",
+				"title": "Open Global Include Folder in Workspace"
+			},
+			{
+				"command": "extension.netlinx_openlibraryfolder",
+				"title": "Open Global Library Folder in Workspace"
+			},
+			{
+				"command": "extension.netlinx_openmodulefolder",
+				"title": "Open Global Module Folder in Workspace"
 			}
 		],
 		"configuration": [
 			{
-				"title": "Netlinx File Locations",
+				"title": "Netlinx",
 				"properties": {
 					"netlinx.compilerLocation": {
 						"type": "string",
@@ -90,6 +105,36 @@
 		],
 		"menus": {
 			"editor/context": [
+				{
+					"command": "extension.netlinx_openmodulefolder",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_openmodulefolder",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
+					"command": "extension.netlinx_openlibraryfolder",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_openlibraryfolder",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
+					"command": "extension.netlinx_openincludefolder",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_openincludefolder",
+					"group": "navigation",
+					"when": "resourceLangId == netlinx-include"
+				},
 				{
 					"command": "extension.netlinx_format",
 					"group": "navigation",
@@ -139,6 +184,36 @@
 		},
 		"keybindings": [
 			{
+				"command": "extension.netlinx_openmodulefolder",
+				"key": "ctrl+shift+f7",
+				"when": "resourceLangId == netlinx-source"
+			},
+			{
+				"command": "extension.netlinx_openmodulefolder",
+				"key": "ctrl+shift+f7",
+				"when": "resourceLangId == netlinx-include"
+			},
+			{
+				"command": "extension.netlinx_openlibraryfolder",
+				"key": "ctrl+shift+f6",
+				"when": "resourceLangId == netlinx-source"
+			},
+			{
+				"command": "extension.netlinx_openlibraryfolder",
+				"key": "ctrl+shift+f6",
+				"when": "resourceLangId == netlinx-include"
+			},
+			{
+				"command": "extension.netlinx_openincludefolder",
+				"key": "ctrl+shift+f5",
+				"when": "resourceLangId == netlinx-source"
+			},
+			{
+				"command": "extension.netlinx_openincludefolder",
+				"key": "ctrl+shift+f5",
+				"when": "resourceLangId == netlinx-include"
+			},
+			{
 				"command": "extension.netlinx_transfer",
 				"key": "ctrl+shift+f4",
 				"when": "resourceLangId == netlinx-source"
@@ -149,23 +224,23 @@
 				"when": "resourceLangId == netlinx-include"
 			},
 			{
-				"command": "extension.netlinx_format",
-				"key": "ctrl+shift+f2",
+				"command": "extension.netlinx_diag",
+				"key": "ctrl+shift+f3",
 				"when": "resourceLangId == netlinx-source"
 			},
 			{
-				"command": "extension.netlinx_format",
-				"key": "ctrl+shift+f2",
+				"command": "extension.netlinx_diag",
+				"key": "ctrl+shift+f3",
 				"when": "resourceLangId == netlinx-include"
 			},
 			{
-				"command": "extension.netlinx_diag",
-				"key": "ctrl+shift+f3",
+				"command": "extension.netlinx_format",
+				"key": "ctrl+shift+f2",
 				"when": "resourceLangId == netlinx-source"
 			},
 			{
-				"command": "extension.netlinx_diag",
-				"key": "ctrl+shift+f3",
+				"command": "extension.netlinx_format",
+				"key": "ctrl+shift+f2",
 				"when": "resourceLangId == netlinx-include"
 			},
 			{
