@@ -4,6 +4,10 @@
 	"description": "Extension for AMX Netlinx. Includes syntax highlighting and compiling.",
 	"version": "0.1.1",
 	"publisher": "ewalters",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/sentry07/vscode-amx-netlinx.git"
+	},
 	"engines": {
 		"vscode": "^1.20.0"
 	},
@@ -295,15 +299,7 @@
 				"scopeName": "source.netlinx",
 				"path": "./syntaxes/amx-netlinx.tmLanguage.json"
 			}
-
 		]
-	},
-	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
-		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
 		"typescript": "^2.6.1",
