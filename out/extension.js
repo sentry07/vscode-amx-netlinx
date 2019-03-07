@@ -30,17 +30,26 @@ function activate(context) {
             let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").includesLocation);
             let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Includes"});
         }
+        else{
+            vscode.window.showErrorMessage("Global Include folder not configured. Please open user settings and set the folder URI.");
+        }
     });
     let open_libraryfolder = vscode.commands.registerCommand("extension.netlinx_openlibraryfolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").librariesLocation.length){
             let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").librariesLocation);
             let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Libraries"});
         }
+        else{
+            vscode.window.showErrorMessage("Global Library folder not configured. Please open user settings and set the folder URI.");
+        }
     });
     let open_modulefolder = vscode.commands.registerCommand("extension.netlinx_openmodulefolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").modulesLocation.length){
             let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").modulesLocation);
             let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Modules"});
+        }
+        else{
+            vscode.window.showErrorMessage("Global Module folder not configured. Please open user settings and set the folder URI.");
         }
     });
     context.subscriptions.push(netlinx_format);
