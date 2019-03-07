@@ -1,7 +1,7 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 
-const vscode = require("vscode");
+var vscode = require("vscode");
 
 function activate(context) {
     let netlinx_format = vscode.commands.registerCommand('extension.netlinx_format', () => {
@@ -25,11 +25,32 @@ function activate(context) {
         let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
         term.sendText("\"" + helpLocation + "\"");
     });
+    let open_includefolder = vscode.commands.registerCommand("extension.netlinx_openincludefolder", () => {
+        if (vscode.workspace.getConfiguration("netlinx").includesLocation.length){
+            let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").includesLocation);
+            let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Includes"});
+        }
+    });
+    let open_libraryfolder = vscode.commands.registerCommand("extension.netlinx_openlibraryfolder", () => {
+        if (vscode.workspace.getConfiguration("netlinx").librariesLocation.length){
+            let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").librariesLocation);
+            let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Libraries"});
+        }
+    });
+    let open_modulefolder = vscode.commands.registerCommand("extension.netlinx_openmodulefolder", () => {
+        if (vscode.workspace.getConfiguration("netlinx").modulesLocation.length){
+            let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").modulesLocation);
+            let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Modules"});
+        }
+    });
     context.subscriptions.push(netlinx_format);
     context.subscriptions.push(netlinx_compile);
     context.subscriptions.push(transfer_command);
     context.subscriptions.push(diag_command);
     context.subscriptions.push(help_command);
+    context.subscriptions.push(open_includefolder);
+    context.subscriptions.push(open_libraryfolder);
+    context.subscriptions.push(open_modulefolder);
 }
 exports.activate = activate;
 

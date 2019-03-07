@@ -15,6 +15,9 @@ This extension contributes the following commands:
 * `extension.netlinx_help`: Opens the AMX Netlinx help reference file.
 * `extension.netlinx_diag`: Opens the AMX Netlinx Diagnostics executable (if installed).
 * `extension.netlinx_transfer`: Opens the AMX File Transfer Utility (if installed).
+* `extension.netlinx_openincludefolder`: Opens the global Netlinx includes folder in the current workspace (if configured in settings)
+* `extension.netlinx_openlibraryfolder`: Opens the global Netlinx libraries folder in the current workspace (if configured in settings)
+* `extension.netlinx_openmodulefolder`: Opens the global Netlinx modules folder in the current workspace (if configured in settings)
 
 ## Extension Settings
 
@@ -30,15 +33,17 @@ For locations, please use the double \ between folder names.
 * `netlinx.libraryLocation`: sets path of global Netlinx libraries folder. Separate multiple paths with semicolons(;). 
 * `netlinx.modulesLocation`: sets path of global Netlinx modules folder. Separate multiple paths with semicolons(;). 
 
-
 ## Keybindings and Menus
 
 All commands are added to the right click context menu of the editor tab, and the following keybindings have been added.
 
-* `ctrl+shift+F1`: Opens Netlinx Help.
-* `ctrl+shift+F2`: Runs Netlinx Code Beautifier.
-* `ctrl+shift+F3`: Opens Netlinx Diagnostics.
-* `ctrl+shift+F4`: Opens File Transfer Utility.
+* `ctrl+shift+F1`: Opens Netlinx Help
+* `ctrl+shift+F2`: Runs Netlinx Code Beautifier
+* `ctrl+shift+F3`: Opens Netlinx Diagnostics
+* `ctrl+shift+F4`: Opens File Transfer Utility
+* `ctrl+shift+F5`: Opens Global Includes Folder in Workspace
+* `ctrl+shift+F6`: Opens Global Libraries Folder in Workspace
+* `ctrl+shift+F7`: Opens Global Modules Folder in Workspace
 * `ctrl+F12`: Compiles current file.
 
 ## Snippets
