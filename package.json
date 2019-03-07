@@ -25,35 +25,35 @@
 		"commands": [
 			{
 				"command": "extension.netlinx_format",
-				"title": "02- Netlinx Beautify Code"
+				"title": "Netlinx Beautify Code"
 			},
 			{
 				"command": "extension.netlinx_compile",
-				"title": "08- Netlinx Compile Current File"
+				"title": "Netlinx Compile Current File"
 			},
 			{
 				"command": "extension.netlinx_transfer",
-				"title": "04- Open AMX File Transfer Utility"
+				"title": "Open AMX File Transfer Utility"
 			},
 			{
 				"command": "extension.netlinx_diag",
-				"title": "03- Open Netlinx Diagnostics"
+				"title": "Open Netlinx Diagnostics"
 			},
 			{
 				"command": "extension.netlinx_help",
-				"title": "01- Open Netlinx Help Reference"
+				"title": "Open Netlinx Help Reference"
 			},
 			{
 				"command": "extension.netlinx_openincludefolder",
-				"title": "05- Open Global Include Folder in Workspace"
+				"title": "Open Global Include Folder in Workspace"
 			},
 			{
 				"command": "extension.netlinx_openlibraryfolder",
-				"title": "06- Open Global Library Folder in Workspace"
+				"title": "Open Global Library Folder in Workspace"
 			},
 			{
 				"command": "extension.netlinx_openmodulefolder",
-				"title": "07- Open Global Module Folder in Workspace"
+				"title": "Open Global Module Folder in Workspace"
 			}
 		],
 		"configuration": [
