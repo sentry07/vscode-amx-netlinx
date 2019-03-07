@@ -125,7 +125,7 @@
         "description": "CASE conditional block"
     },
     "Select Codeblock":{
-        "prefix": "switch",
+        "prefix": "select",
         "body": [
             "SELECT",
             "{",
@@ -138,7 +138,7 @@
         "description": "SELECT conditional block"
     },
     "Active Codeblock":{
-        "prefix": "case",
+        "prefix": "active",
         "body": [
             "ACTIVE (${2:value}):",
             "{",
@@ -149,7 +149,7 @@
     },
     "Get_Last Function":{
         "prefix": "get_last",
-        "body": "GET_LAST($0)",
+        "body": "GET_LAST(${1:array})\n$0",
         "description": "Get_Last() function call"
     }
     
