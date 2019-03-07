@@ -299,6 +299,16 @@
 				"scopeName": "source.netlinx",
 				"path": "./syntaxes/amx-netlinx.tmLanguage.json"
 			}
+		],
+		"snippets": [
+			{
+				"language": "netlinx-source",
+				"path": "./snippets/snippets.json"
+			},
+			{
+				"language": "netlinx-include",
+				"path": "./snippets/snippets.json"
+			}
 		]
 	},
 	"devDependencies": {

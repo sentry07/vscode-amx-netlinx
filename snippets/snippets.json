@@ -1,0 +1,156 @@
+{
+    "Data_Event Codeblock":{
+        "prefix": "DATA_EVENT",
+        "body": [
+            "DATA_EVENT[${1:device}]",
+            "{",
+            "\tONLINE:",
+            "\t{",
+            "\t\t$0",
+            "\t}",
+            "\tOFFLINE: { }",
+            "\tCOMMAND: { }",
+            "\tSTRING:",
+            "\t{",
+            "\t\t",
+            "\t}",
+            "}"
+        ],
+        "description": "Basic DATA_EVENT block"
+    },
+    "Button Event Codeblock":{
+        "prefix": "button_event",
+        "body": [
+            "BUTTON_EVENT[${1:device},${2:channel}]",
+            "{",
+            "\tPUSH:",
+            "\t{",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Basic BUTTON_EVENT block with PUSH"
+    },
+    "Hold Event Codeblock":{
+        "prefix": "hold",
+        "body": [
+            "HOLD[${1:time}${2:,REPEAT}]:",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Basic HOLD event block"
+    },
+    "Release Event Codeblock":{
+        "prefix": "release",
+        "body": [
+            "RELEASE:",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Basic RELEASE event block"
+    },
+    "For Loop Codeblock":{
+        "prefix": "for",
+        "body": [
+            "FOR (${1:var} == ${2:start}; ${1:var} <= ${3:end}; ${1:var}++)",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Basic FOR loop block"
+    },
+    "If Codeblock":{
+        "prefix": "if",
+        "body": [
+            "IF (${1:conditional})",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "IF conditional block"
+    },
+    "Else Codeblock":{
+        "prefix": "else",
+        "body": [
+            "ELSE",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "ELSE code block"
+    },
+    "Else If Codeblock":{
+        "prefix": "else if",
+        "body": [
+            "ELSE IF (${1:conditional})",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "ELSE IF conditional block"
+    },
+    "While Codeblock":{
+        "prefix": "while",
+        "body": [
+            "WHILE (${1:conditional})",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "WHILE conditional block"
+    },
+    "Switch Codeblock":{
+        "prefix": "switch",
+        "body": [
+            "SWITCH (${1:variable})",
+            "{",
+            "\tCASE ${2:value}:",
+            "\t{",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "SWITCH conditional block"
+    },
+    "Case Codeblock":{
+        "prefix": "case",
+        "body": [
+            "CASE ${2:value}:",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "CASE conditional block"
+    },
+    "Select Codeblock":{
+        "prefix": "switch",
+        "body": [
+            "SELECT",
+            "{",
+            "\tACTIVE (${1:conditional}):",
+            "\t{",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "SELECT conditional block"
+    },
+    "Active Codeblock":{
+        "prefix": "case",
+        "body": [
+            "ACTIVE (${2:value}):",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "ACTIVE conditional block"
+    },
+    "Get_Last Function":{
+        "prefix": "get_last",
+        "body": "GET_LAST($0)",
+        "description": "Get_Last() function call"
+    }
+    
+}
