@@ -12,7 +12,8 @@
 		"vscode": "^1.20.0"
 	},
 	"categories": [
-		"Programming Languages"
+		"Programming Languages",
+		"Snippets"
 	],
 	"activationEvents": [
 		"onCommand:extension.netlinx_format",
