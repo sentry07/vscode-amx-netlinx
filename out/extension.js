@@ -27,7 +27,7 @@ function activate(context) {
     });
     let open_includefolder = vscode.commands.registerCommand("extension.netlinx_openincludefolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").includesLocation.length){
-            let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").includesLocation);
+            let folderLocation = vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").includesLocation);
             let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Includes"});
         }
         else{
@@ -36,7 +36,7 @@ function activate(context) {
     });
     let open_libraryfolder = vscode.commands.registerCommand("extension.netlinx_openlibraryfolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").librariesLocation.length){
-            let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").librariesLocation);
+            let folderLocation = vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").librariesLocation);
             let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Libraries"});
         }
         else{
@@ -45,7 +45,7 @@ function activate(context) {
     });
     let open_modulefolder = vscode.commands.registerCommand("extension.netlinx_openmodulefolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").modulesLocation.length){
-            let folderLocation = new vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").modulesLocation);
+            let folderLocation = vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").modulesLocation);
             let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Modules"});
         }
         else{
