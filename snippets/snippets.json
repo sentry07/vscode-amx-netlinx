@@ -204,32 +204,32 @@
     },
     "Length_Array Function":{
         "prefix": "length_array",
-        "body": "LENGTH_ARRAY(${1:var})",
+        "body": "LENGTH_ARRAY(${1:var})$0",
         "description": "Length_Array() function call"
     },
     "Max_Length_Array Function":{
         "prefix": "max_length_array",
-        "body": "MAX_LENGTH_ARRAY(${1:var})",
+        "body": "MAX_LENGTH_ARRAY(${1:var})$0",
         "description": "Max_Length_Array() function call"
     },
     "Length_String Function":{
         "prefix": "length_string",
-        "body": "LENGTH_STRING(${1:var})",
+        "body": "LENGTH_STRING(${1:var})$0",
         "description": "Length_String() function call"
     },
     "Find_String Function":{
         "prefix": "find_string",
-        "body": "FIND_STRING(${1:haystack},${2:needle},${3:startpos})",
+        "body": "FIND_STRING(${1:haystack},${2:needle},${3:startpos})$0",
         "description": "Find_String() function call"
     },
     "Remove_String Function":{
         "prefix": "remove_string",
-        "body": "REMOVE_STRING(${1:haystack},${2:needle},${3:startpos})",
+        "body": "REMOVE_STRING(${1:haystack},${2:needle},${3:startpos})$0",
         "description": "Length_Array() function call"
     },
     "Mid_String Function":{
         "prefix": "mid_string",
-        "body": "MID_STRING(${1:var},${2:startpos},${3:endpos})",
+        "body": "MID_STRING(${1:var},${2:startpos},${3:endpos})$0",
         "description": "Mid_String() function call"
     },
     "Local_Var Declaration":{
@@ -237,20 +237,70 @@
         "body": "LOCAL_VAR $0",
         "description": "Local_Var context declaration"
     },
+    "Local_Var Integer Declaration":{
+        "prefix": "local_var integer",
+        "body": "LOCAL_VAR INTEGER $0",
+        "description": "Local_Var Integer variable declaration"
+    },
+    "Local_Var Char Declaration":{
+        "prefix": "local_var char",
+        "body": "LOCAL_VAR CHAR $0",
+        "description": "Local_Var Char variable declaration"
+    },
+    "Local_Var Long Declaration":{
+        "prefix": "local_var long",
+        "body": "LOCAL_VAR LONG $0",
+        "description": "Local_Var Long variable declaration"
+    },
+    "Local_Var SLong Declaration":{
+        "prefix": "local_var slong",
+        "body": "LOCAL_VAR SLONG $0",
+        "description": "Local_Var SLong variable declaration"
+    },
     "Stack_Var Declaration":{
         "prefix": "stack_var",
         "body": "STACK_VAR $0",
         "description": "Stack_Var context declaration"
     },
-    "Send_Command Declaration":{
+    "Stack_Var Char Declaration":{
+        "prefix": "stack_var char",
+        "body": "STACK_VAR CHAR $0",
+        "description": "Stack_Var Char context declaration"
+    },
+    "Stack_Var Integer Declaration":{
+        "prefix": "stack_var integer",
+        "body": "STACK_VAR INTEGER $0",
+        "description": "Stack_Var Integer context declaration"
+    },
+    "Stack_Var Long Declaration":{
+        "prefix": "stack_var long",
+        "body": "STACK_VAR LONG $0",
+        "description": "Stack_Var Long context declaration"
+    },
+    "Stack_Var SLong Declaration":{
+        "prefix": "stack_var slong",
+        "body": "STACK_VAR SLONG $0",
+        "description": "Stack_Var SLong context declaration"
+    },
+    "Send_Command Function":{
         "prefix": "send_command",
         "body": "SEND_COMMAND $0",
-        "description": "Send_Command context declaration"
+        "description": "Send_Command function declaration"
     },
-    "Send_String Declaration":{
+    "Send_String Function":{
         "prefix": "send_string",
         "body": "SEND_STRING $0",
-        "description": "Send_String context declaration"
+        "description": "Send_String function declaration"
+    },
+    "Comment header":{
+        "prefix": "__com",
+        "body": [
+            "// ---------------------------------------------------------------------------------------------------------------------",
+            "// ${1:Comment}",
+            "// ---------------------------------------------------------------------------------------------------------------------",
+            "$0"
+        ],
+        "description": "Comment header block"
     }
 
 }
