@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Language="en-US" Id="amx-netlinx" Version="0.0.1" Publisher="ewalters"/>
+    <Identity Language="en-US" Id="amx-netlinx" Version="0.1.2" Publisher="sentry07"/>
     <DisplayName>AMX Netlinx</DisplayName>
-    <Description xml:space="preserve">Extension for AMX Netlinx. Includes syntax highlighting and compiler access.</Description>
+    <Description xml:space="preserve">Extension for AMX Netlinx. Includes syntax highlighting, compiling, beautification and snippets.</Description>
     <Tags>keybindings,netlinx,amx,__ext_axs,__ext_axi,__ext_axb</Tags>
     <Categories>Programming Languages</Categories>
     <GalleryFlags>Public</GalleryFlags>

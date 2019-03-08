@@ -48,6 +48,7 @@ All commands are added to the right click context menu of the editor tab, and th
 
 ## Snippets
 
+* See `SNIPPETS.md` for the list of currently configured snippets.
 
 ## Known Issues
 
@@ -59,6 +60,10 @@ All commands are added to the right click context menu of the editor tab, and th
 * `extension.netlinx_transfer` requires File Transfer Utility 2 to be installed. This is not freely available, but you can try to get it from the following URL. Login may be required.
     https://trade.amx.com/techcenter/downloadConfirm.asp?fn=/assets/applicationFiles/FT2Setup.exe
 
-### 1.0.0
+### 0.1.2
 
-- Initial release
+- Added base Netlinx code snippets
+
+### 0.1.1
+
+- Beta release
