@@ -2,7 +2,7 @@
 	"name": "amx-netlinx",
 	"displayName": "AMX Netlinx",
 	"description": "Extension for AMX Netlinx. Includes syntax highlighting and compiling.",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"publisher": "sentry07",
 	"repository": {
 		"type": "git",
