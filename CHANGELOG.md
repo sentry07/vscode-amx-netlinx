@@ -2,6 +2,16 @@
 
 All notable changes to the "amx-netlinx" extension will be documented in this file.
 
-## 1.0.0
+### 0.2.1
+- Removing double quoted strings as a string container. It prevented autocomplete and other things to function inside strings.
+- Fixed "FOR" code snippet
 
-- Initial release
+### 0.2.0
+- More Code Snippets
+- Published to Extension Marketplace
+
+### 0.1.2
+- Added base Netlinx code snippets
+
+### 0.1.1
+- Beta release

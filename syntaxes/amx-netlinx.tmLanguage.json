@@ -439,11 +439,6 @@
           "name": "string.quoted.single.netlinx",
           "begin": "'",
           "end": "'"
-        },
-        {
-          "name": "string.quoted.double.netlinx",
-          "begin": "\"",
-          "end": "\""
         }
       ]
     },

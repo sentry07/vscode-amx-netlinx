@@ -60,10 +60,16 @@ All commands are added to the right click context menu of the editor tab, and th
 * `extension.netlinx_transfer` requires File Transfer Utility 2 to be installed. This is not freely available, but you can try to get it from the following URL. Login may be required.
     https://trade.amx.com/techcenter/downloadConfirm.asp?fn=/assets/applicationFiles/FT2Setup.exe
 
-### 0.1.2
+### 0.2.1
+- Removing double quoted strings as a string container. It prevented autocomplete and other things to function inside strings.
+- Fixed "FOR" code snippet
 
+### 0.2.0
+- More Code Snippets
+- Published to Extension Marketplace
+
+### 0.1.2
 - Added base Netlinx code snippets
 
 ### 0.1.1
-
 - Beta release

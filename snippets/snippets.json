@@ -94,7 +94,7 @@
     "For Loop Codeblock":{
         "prefix": "for",
         "body": [
-            "FOR (${1:var} == ${2:start}; ${1:var} <= ${3:end}; ${1:var}++)",
+            "FOR (${1:var} = ${2:start}; ${1:var} <= ${3:end}; ${1:var}++)",
             "{",
             "\t$0",
             "}"
