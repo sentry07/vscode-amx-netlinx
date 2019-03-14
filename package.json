@@ -23,7 +23,8 @@
 		"onCommand:extension.netlinx_help",
 		"onCommand:extension.netlinx_openincludefolder",
 		"onCommand:extension.netlinx_openlibraryfolder",
-		"onCommand:extension.netlinx_openmodulefolder"
+    "onCommand:extension.netlinx_openmodulefolder",
+    "onCommand:workbench.action.tasks.runTask"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -310,7 +311,21 @@
 				"language": "netlinx-include",
 				"path": "./snippets/snippets.json"
 			}
-		]
+    ],
+    "taskDefinitions": [
+      {
+        "type": "netlinx",
+        "required": [
+          "task"
+        ],
+        "properties": {
+          "task": {
+            "type": "string",
+            "description": "the Netlinx Build task to customize"
+          }
+        }
+      }
+    ]
 	},
 	"devDependencies": {
 		"typescript": "^2.6.1",

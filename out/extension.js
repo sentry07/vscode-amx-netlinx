@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 var vscode = require("vscode");
 
+let taskProvider = vsCode.Disposable | undefined;
 function activate(context) {
     let netlinx_format = vscode.commands.registerCommand('extension.netlinx_format', () => {
         fixIndentation();
@@ -52,6 +53,9 @@ function activate(context) {
             vscode.window.showErrorMessage("Global Module folder not configured. Please open user settings and set the folder URI.");
         }
     });
+
+    registerTasks();
+    
     context.subscriptions.push(netlinx_format);
     context.subscriptions.push(netlinx_compile);
     context.subscriptions.push(transfer_command);
@@ -63,6 +67,21 @@ function activate(context) {
 }
 exports.activate = activate;
 
+function registerTasks() {
+  let netlinxPromise;
+  taskProvider = vscode.tasks.registerTaskProvider('netlinx', {
+    provideTasks: () => {
+      if(!netlinxPromise) {
+        netlinxPromise = getCompileTasks();
+      }
+
+      return netlinxPromise;
+    },
+    resolveTask: () => {
+      return undefined;
+    }
+  })
+}
 function compileNetlinx(args) {
     let editor = vscode.window.activeTextEditor;
     if (!editor) {
@@ -73,26 +92,32 @@ function compileNetlinx(args) {
     if (doc.languageId === "netlinx-source") {
         let savedDoc = doc.save();
         savedDoc.then(() => {
-            let compiler = new NetlinxCompiler();
-            compiler.filepaths.push(doc.fileName);
-            if (vscode.workspace.getConfiguration("netlinx").includesLocation.length > 0) {
-                compiler.filepaths.push("-I" + vscode.workspace.getConfiguration("netlinx").includesLocation);
-            }
-            if (vscode.workspace.getConfiguration("netlinx").librariesLocation.length > 0) {
-                compiler.filepaths.push("-L" + vscode.workspace.getConfiguration("netlinx").librariesLocation);
-            }
-            if (vscode.workspace.getConfiguration("netlinx").modulesLocation.length > 0) {
-                compiler.filepaths.push("-M" + vscode.workspace.getConfiguration("netlinx").modulesLocation);
-            }
-            let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
-            term.show();
-            term.sendText(compiler.buildCommand(args));
+          let buildCommand = getCompileCommand(doc.fileName);
+          let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
+          term.show();
+          term.sendText(buildCommand);
         });
     }
     else {
         vscode.window.showErrorMessage("Please open a valid AXS file.");
         return;
     }
+}
+
+function getCompileCommand(fileName) {
+  let compiler = new NetlinxCompiler();
+  compiler.filepaths.push(fileName);
+  if (vscode.workspace.getConfiguration("netlinx").includesLocation.length > 0) {
+      compiler.filepaths.push("-I" + vscode.workspace.getConfiguration("netlinx").includesLocation);
+  }
+  if (vscode.workspace.getConfiguration("netlinx").librariesLocation.length > 0) {
+      compiler.filepaths.push("-L" + vscode.workspace.getConfiguration("netlinx").librariesLocation);
+  }
+  if (vscode.workspace.getConfiguration("netlinx").modulesLocation.length > 0) {
+      compiler.filepaths.push("-M" + vscode.workspace.getConfiguration("netlinx").modulesLocation);
+  }
+
+  return compiler.buildCommand();
 }
 
 function fixIndentation(args) {
@@ -138,6 +163,27 @@ function fixIndentation(args) {
         return;
     }
 }
+
+async function getCompileTasks() {
+  let workspaceRoot = vscode.workspace.rootPath;
+
+  if(!workspaceRoot){
+    return;
+  }
+  let editor = vscode.window.activeTextEditor;
+  let doc = editor.document;
+  let buildCommand = getCompileCommand(doc.fileName);
+  let taskDef = {
+    type: 'netlinx',
+    task: 'buildNetlinx',
+  }
+
+  let task = new vscode.Task(taskDef,'netlinx', new vsCode.ShellExecution(buildCommand));
+
+  task.group = vscode.TaskGroup.Build;
+
+  return task;
+}
 class NetlinxCompiler {
     constructor() {
         this.filepaths = [];
@@ -156,6 +202,9 @@ class NetlinxCompiler {
 }
 // this method is called when your extension is deactivated
 function deactivate() {
+  if(netlinxPromise) {
+    netlinxPromise.dispose();
+  }
 }
 exports.deactivate = deactivate;
 //# sourceMappingURL=extension.js.map
