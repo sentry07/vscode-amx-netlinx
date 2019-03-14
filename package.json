@@ -315,13 +315,9 @@
     "taskDefinitions": [
       {
         "type": "netlinx",
-        "required": [
-          "task"
-        ],
         "properties": {
-          "task": {
-            "type": "string",
-            "description": "the Netlinx Build task to customize"
+          "buildPath": {
+            "type": "string"
           }
         }
       }

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 var vscode = require("vscode");
 
-let taskProvider = vsCode.Disposable | undefined;
+let taskProvider = vscode.Disposable | undefined;
 function activate(context) {
     let netlinx_format = vscode.commands.registerCommand('extension.netlinx_format', () => {
         fixIndentation();
@@ -166,24 +166,53 @@ function fixIndentation(args) {
 
 async function getCompileTasks() {
   let workspaceRoot = vscode.workspace.rootPath;
+  let emptyTasks = [];
 
   if(!workspaceRoot){
-    return;
-  }
-  let editor = vscode.window.activeTextEditor;
-  let doc = editor.document;
-  let buildCommand = getCompileCommand(doc.fileName);
-  let taskDef = {
-    type: 'netlinx',
-    task: 'buildNetlinx',
+    return emptyTasks;
   }
 
-  let task = new vscode.Task(taskDef,'netlinx', new vsCode.ShellExecution(buildCommand));
+  try{
+    let result = [];
+    let editor = vscode.window.activeTextEditor;
+    let doc = editor.document;
+    let buildCommand = getCompileCommand(doc.fileName);
+    
+    
+    console.log(`filename: ${doc} buildCommand: ${buildCommand}`);
 
-  task.group = vscode.TaskGroup.Build;
+  
+    let task = new vscode.Task(taskDef,'netlinx', 'netlinx', new vscode.ShellExecution(buildCommand));
 
-  return task;
+    task.group = vscode.TaskGroup.Build;
+
+    result.push(task);
+    return result;
+  }
+  catch (err){
+    let channel = getOutputChannel();
+    console.log(err);
+    if(err.stderr) {
+      channel.appendLine(err.stderr);
+    }
+    if(err.stdout) {
+      channel.appendLine(err.stdout);
+    }
+
+    channel.appendLine('netlinx compile failed');
+    channel.show(true);
+    return emptyTasks;
+  }
 }
+
+let _channel = vscode.OutputChannel;
+function getOutputChannel() {
+  if(!_channel) {
+    _channel = vscode.window.createOutputChannel("Netlinx Compile");
+  }
+  return _channel;
+}
+
 class NetlinxCompiler {
     constructor() {
         this.filepaths = [];
@@ -202,8 +231,8 @@ class NetlinxCompiler {
 }
 // this method is called when your extension is deactivated
 function deactivate() {
-  if(netlinxPromise) {
-    netlinxPromise.dispose();
+  if(taskProvider) {
+    taskProvider.dispose();
   }
 }
 exports.deactivate = deactivate;
