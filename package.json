@@ -321,7 +321,17 @@
 					}
 				}
 			}
-		]
+    ],
+    "problemMatchers": [
+      {
+        "name": "nlrc",
+        "owner": "vscode-amx-netlinx",
+        "fileLocation": [
+          "relative",
+          "${workspaceFolder}"
+        ]
+      }
+    ]
 	},
 	"devDependencies": {
 		"typescript": "^2.6.1",

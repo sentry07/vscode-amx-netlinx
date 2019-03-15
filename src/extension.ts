@@ -1,5 +1,3 @@
-'use strict';
-Object.defineProperty(exports, "__esModule", { value: true });
 import * as vscode from 'vscode';
 
 let taskProvider: vscode.Disposable | undefined;
@@ -28,7 +26,7 @@ function activate(context) {
     let open_includefolder = vscode.commands.registerCommand("extension.netlinx_openincludefolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").includesLocation.length){
             let folderLocation = vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").includesLocation);
-            let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Includes"});
+            vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Includes"});
         }
         else{
             vscode.window.showErrorMessage("Global Include folder not configured. Please open user settings and set the folder URI.");
@@ -67,7 +65,7 @@ function activate(context) {
 exports.activate = activate;
 
 function registerTasks() {
-  let netlinxPromise;
+  let netlinxPromise:Thenable<vscode.Task[]>| undefined = undefined;
   taskProvider = vscode.tasks.registerTaskProvider('netlinx', {
     provideTasks: () => {
       if(!netlinxPromise) {
@@ -142,7 +140,7 @@ function fixIndentation() {
         let docLines = docText.split(/\r?\n/);
         for (var line = 0; line < docLines.length; line++) {
             if (reIncrease.test(docLines[line])) {
-                outputText = outputText + ('\t'.repeat(indentLevel)) + docLines[line].trimLeft() + "\r";
+                outputText = outputText + ('\t'.repeat(indentLevel)) + docLines[line].trimStart() + "\r";
                 indentLevel = indentLevel + 1;
             }
             else if (reDecrease.test(docLines[line])) {
@@ -163,10 +161,10 @@ function fixIndentation() {
     }
 }
 
-export interface NetlinxTaskDefinition extends vscode.TaskDefinition {
-  buildCommand: string;
+interface NetlinxTaskDefinition extends vscode.TaskDefinition {
+  buildPath: string;
 }
-async function getCompileTasks() {
+async function getCompileTasks(): Promise<vscode.Task[]> {
   let workspaceRoot = vscode.workspace.rootPath;
   let emptyTasks: vscode.Task[] = [];
 
@@ -180,14 +178,16 @@ async function getCompileTasks() {
     let doc = editor.document;
     let buildCommand = getCompileCommand(doc.fileName);
     
-    
-    console.log(`filename: ${doc} buildCommand: ${buildCommand}`);
     let taskDef: NetlinxTaskDefinition = {
       type: 'netlinx',
-      buildCommand: buildCommand
+      buildPath: buildCommand
     }
+
+    let executable = 'c:\\windows\\system32\\cmd.exe';
+
+    let command: vscode.ShellExecution = new vscode.ShellExecution(`"${buildCommand}"`, {executable: executable, shellArgs: ['/c']});
   
-    let task = new vscode.Task(taskDef,'netlinx', 'netlinx', new vscode.ShellExecution(buildCommand));
+    let task = new vscode.Task(taskDef,'NLRC', 'NetLinx Build', command, `$nlrc`);
 
     task.group = vscode.TaskGroup.Build;
 
@@ -222,7 +222,6 @@ class NetlinxCompiler {
     constructor() {
         this.filepaths = [];
         this.compilerPath = "\"" + vscode.workspace.getConfiguration("netlinx").compilerLocation + "\"";
-        console.log(this.compilerPath);
     }
     buildCommand() {
         let filepathConcat = "";
