@@ -2,7 +2,7 @@
 	"name": "amx-netlinx",
 	"displayName": "AMX Netlinx",
 	"description": "Extension for AMX Netlinx. Includes syntax highlighting and compiling.",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"publisher": "sentry07",
 	"icon": "netlinx.png",
 	"repository": {
@@ -325,16 +325,18 @@
 		],
 		"problemMatchers": [
 			{
-				"name":"nlrc",
-				"owner":"amx-netlinx",
-                "fileLocation":["absolute"],
-                "pattern":{
-                    "regexp": "^(?:ERROR|WARNING):\\s+(.*?)\\(([0-9]+)\\)([\\w\\s\\-:&,.\\[\\]]*)$",
-                    "file": 1,
-                    "location": 2,
-                    "message": 3
-                }
-            }
+				"name": "nlrc",
+				"owner": "amx-netlinx",
+				"fileLocation": [
+					"absolute"
+				],
+				"pattern": {
+					"regexp": "^(?:ERROR|WARNING):\\s+(.*?)\\(([0-9]+)\\)([\\w\\s\\-:&,.\\[\\]]*)$",
+					"file": 1,
+					"location": 2,
+					"message": 3
+				}
+			}
 		],
 		"configurationDefaults": {
 			"[netlinx]": {
@@ -347,16 +349,15 @@
 				},
 				"editor.snippetSuggestions": "top"
 			}
-		  }
-	  
+		}
 	},
-    "scripts": {
-        "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "npm run compile && node ./node_modules/vscode/bin/test"
-    },
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
 	"devDependencies": {
 		"typescript": "^3.3.3333",
 		"vscode": "^1.1.30",
