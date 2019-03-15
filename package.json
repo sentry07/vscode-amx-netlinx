@@ -23,8 +23,8 @@
 		"onCommand:extension.netlinx_help",
 		"onCommand:extension.netlinx_openincludefolder",
 		"onCommand:extension.netlinx_openlibraryfolder",
-    "onCommand:extension.netlinx_openmodulefolder",
-    "onCommand:workbench.action.tasks.runTask"
+		"onCommand:extension.netlinx_openmodulefolder",
+		"onCommand:workbench.action.tasks.runTask"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -311,17 +311,17 @@
 				"language": "netlinx-include",
 				"path": "./snippets/snippets.json"
 			}
-    ],
-    "taskDefinitions": [
-      {
-        "type": "netlinx",
-        "properties": {
-          "buildPath": {
-            "type": "string"
-          }
-        }
-      }
-    ]
+		],
+		"taskDefinitions": [
+			{
+				"type": "netlinx",
+				"properties": {
+					"buildPath": {
+						"type": "string"
+					}
+				}
+			}
+		]
 	},
 	"devDependencies": {
 		"typescript": "^2.6.1",
@@ -336,6 +336,7 @@
 		"publisherDisplayName": "sentry07"
 	},
 	"dependencies": {
+		"@types/vscode": "^1.16.0",
 		"vsce": "^1.57.1"
 	}
 }
