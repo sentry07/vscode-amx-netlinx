@@ -4,6 +4,7 @@
 	"description": "Extension for AMX Netlinx. Includes syntax highlighting and compiling.",
 	"version": "0.2.1",
 	"publisher": "sentry07",
+	"icon": "netlinx.png",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/sentry07/vscode-amx-netlinx.git"
@@ -321,24 +322,48 @@
 					}
 				}
 			}
-    ],
-    "problemMatchers": [
-      {
-        "name": "nlrc",
-        "owner": "vscode-amx-netlinx",
-        "fileLocation": [
-          "relative",
-          "${workspaceFolder}"
-        ]
-      }
-    ]
+		],
+		"problemMatchers": [
+			{
+				"name":"nlrc",
+				"owner":"amx-netlinx",
+                "fileLocation":["absolute"],
+                "pattern":{
+                    "regexp": "^(?:ERROR|WARNING):\\s+(.*?)\\(([0-9]+)\\)([\\w\\s\\-:&,.\\[\\]]*)$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                }
+            }
+		],
+		"configurationDefaults": {
+			"[netlinx]": {
+				"editor.wordBasedSuggestions": false,
+				"editor.suggest.snippetsPreventQuickSuggestions": false,
+				"editor.quickSuggestions": {
+					"other": true,
+					"comments": false,
+					"strings": false
+				},
+				"editor.snippetSuggestions": "top"
+			}
+		  }
+	  
 	},
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
 	"devDependencies": {
-		"typescript": "^2.6.1",
-		"vscode": "^1.1.6",
-		"tslint": "^5.8.0",
-		"@types/node": "^7.0.43",
-		"@types/mocha": "^2.2.42"
+		"typescript": "^3.3.3333",
+		"vscode": "^1.1.30",
+		"tslint": "^5.14.0",
+		"mocha": "^5.2.0",
+		"@types/node": "^11.11.3",
+		"@types/mocha": "^5.2.6"
 	},
 	"__metadata": {
 		"id": "",
@@ -346,7 +371,7 @@
 		"publisherDisplayName": "sentry07"
 	},
 	"dependencies": {
-		"@types/vscode": "^1.16.0",
+		"@types/vscode": "^1.17.0",
 		"vsce": "^1.57.1"
 	}
 }

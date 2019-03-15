@@ -48,7 +48,7 @@ All commands are added to the right click context menu of the editor tab, and th
 
 ## Snippets
 
-* See `SNIPPETS.md` for the list of currently configured snippets.
+* Most default Netlinx code blocks are included as snippets.
 
 ## Known Issues
 
@@ -59,6 +59,11 @@ All commands are added to the right click context menu of the editor tab, and th
 * `extension.netlinx_diag` requires Netlinx Diagnostics to be installed. This is freely available at AMX.com.
 * `extension.netlinx_transfer` requires File Transfer Utility 2 to be installed. This is not freely available, but you can try to get it from the following URL. Login may be required.
     https://trade.amx.com/techcenter/downloadConfirm.asp?fn=/assets/applicationFiles/FT2Setup.exe
+
+### 0.3.0
+- Converted extension to TypeScript
+- Added Build command. Can use the previous shortcut or use CTRL+SHIFT+B and select the build task.
+- Added workspace configuration defaults for the extension to work better with snippets.
 
 ### 0.2.1
 - Removing double quoted strings as a string container. It prevented autocomplete and other things to function inside strings.

@@ -140,7 +140,7 @@ function fixIndentation() {
         let docLines = docText.split(/\r?\n/);
         for (var line = 0; line < docLines.length; line++) {
             if (reIncrease.test(docLines[line])) {
-                outputText = outputText + ('\t'.repeat(indentLevel)) + docLines[line].trimStart() + "\r";
+                outputText = outputText + ('\t'.repeat(indentLevel)) + docLines[line].trimLeft() + "\r";
                 indentLevel = indentLevel + 1;
             }
             else if (reDecrease.test(docLines[line])) {
@@ -179,16 +179,16 @@ async function getCompileTasks(): Promise<vscode.Task[]> {
     let buildCommand = getCompileCommand(doc.fileName);
     
     let taskDef: NetlinxTaskDefinition = {
-      type: 'netlinx',
+      type: 'shell',
+      label: 'Netlinx Build',
       buildPath: buildCommand
     }
 
     let executable = 'c:\\windows\\system32\\cmd.exe';
 
     let command: vscode.ShellExecution = new vscode.ShellExecution(`"${buildCommand}"`, {executable: executable, shellArgs: ['/c']});
-  
-    let task = new vscode.Task(taskDef,'NLRC', 'NetLinx Build', command, `$nlrc`);
-
+    let task = new vscode.Task(taskDef,'Netlinx Build', 'amx-netlinx', command, `$nlrc`);
+    task.definition = taskDef;
     task.group = vscode.TaskGroup.Build;
 
     result.push(task);
@@ -204,7 +204,7 @@ async function getCompileTasks(): Promise<vscode.Task[]> {
       channel.appendLine(err.stdout);
     }
 
-    channel.appendLine('netlinx compile failed');
+    channel.appendLine('Netlinx compile failed');
     channel.show(true);
     return emptyTasks;
   }
