@@ -339,7 +339,7 @@
 			}
 		],
 		"configurationDefaults": {
-			"[netlinx]": {
+			"[amx-netlinx]": {
 				"editor.wordBasedSuggestions": false,
 				"editor.suggest.snippetsPreventQuickSuggestions": false,
 				"editor.quickSuggestions": {
