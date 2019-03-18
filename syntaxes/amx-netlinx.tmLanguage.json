@@ -239,7 +239,7 @@
       "patterns": [
         {
           "name": "keyword.operator.netlinx",
-          "match": "[\\+\\-/*%<>=!&|]+\\b"
+          "match": "[\\+\\-/*%<>=!&|]+"
         },
         {
           "name": "keyword.operator.logical.netlinx",
