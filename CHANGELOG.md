@@ -1,6 +1,7 @@
 # Change Log
 
-All notable changes to the "amx-netlinx" extension will be documented in this file.
+### 0.3.2
+- Bug fixes in syntax highlighting
 
 ### 0.3.0
 - Converted extension to TypeScript

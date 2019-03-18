@@ -1,12 +1,22 @@
-# amx-netlinx README
+This is a language package for programming AMX Netlinx control systems. It has syntax highlighting, a code beautifier, snippets for a lot of Netlinx
+functions and code blocks, a build task, and shortcuts for the AMX programming help file, Netlinx Diagnostics, and the File Transfer utility. After installing
+the extension, please open your VSCode Settings (CTRL-Comma) and search for Netlinx and verify/update the locations in there.
 
-VSCode Extension which adds syntax highlighting and provides commands in the command pallete for compiling.
+## New in this release (0.3.2):
+* Bug fixes in syntax highlighting
 
-## Features
+## Known Issues
+* The code beautifier has an issue if you open a curly bracket on one line, and then close it after a line of code on a different line. Closing the curly bracket on a new line will fix it.
 
-Syntax highlighting, compiler, show help file, File Transfer and Netlinx Diagnostics if installed.
+## TODO
+* Fix known issues
+* Language server development
 
-TODO: language server development, snippet support
+## Quality of life recommendations:
+* Install "Open In Application" extension by Fabio Spampinato: https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-open-in-application
+* Use a different theme than the default themes for full syntax highlighting (Material Theme Darker High Contrast is amazing)
+
+## Extension Commands
 
 This extension contributes the following commands:
 
@@ -22,16 +32,15 @@ This extension contributes the following commands:
 ## Extension Settings
 
 This extension contributes the following settings:
-For locations, please use the double \ between folder names.
 
 * `netlinx.compilerLocation`: sets the path of the Netlinx compiler. 
 * `netlinx.helpLocation`: sets the path of the Netlinx reference guide.
 * `netlinx.diagLocation`: sets the path of the Netlinx Diagnostics program.
 * `netlinx.ftLocation`: sets the path of the Netlinx File Transfer utility.
 * `netlinx.terminalLocation`: sets path of the default windows cmd.exe.
-* `netlinx.includesLocation`: sets path of global Netlinx includes folder. Separate multiple paths with semicolons(;). 
-* `netlinx.libraryLocation`: sets path of global Netlinx libraries folder. Separate multiple paths with semicolons(;). 
-* `netlinx.modulesLocation`: sets path of global Netlinx modules folder. Separate multiple paths with semicolons(;). 
+* `netlinx.includesLocation`: sets path of global Netlinx includes folder.
+* `netlinx.libraryLocation`: sets path of global Netlinx libraries folder.
+* `netlinx.modulesLocation`: sets path of global Netlinx modules folder.
 
 ## Keybindings and Menus
 
@@ -46,35 +55,9 @@ All commands are added to the right click context menu of the editor tab, and th
 * `ctrl+shift+F7`: Opens Global Modules Folder in Workspace
 * `ctrl+F12`: Compiles current file.
 
-## Snippets
-
-* Most default Netlinx code blocks are included as snippets.
-
-## Known Issues
-
-
-## Release Notes
+## Notes
 
 * `extension.netlinx_compile` requires Netlinx Studio 3.x or 4.x to be installed. Preferably 4.x. This is freely available at AMX.com.
 * `extension.netlinx_diag` requires Netlinx Diagnostics to be installed. This is freely available at AMX.com.
 * `extension.netlinx_transfer` requires File Transfer Utility 2 to be installed. This is not freely available, but you can try to get it from the following URL. Login may be required.
     https://trade.amx.com/techcenter/downloadConfirm.asp?fn=/assets/applicationFiles/FT2Setup.exe
-
-### 0.3.0
-- Converted extension to TypeScript
-- Added Build command. Can use the previous shortcut or use CTRL+SHIFT+B and select the build task.
-- Added workspace configuration defaults for the extension to work better with snippets.
-
-### 0.2.1
-- Removing double quoted strings as a string container. It prevented autocomplete and other things to function inside strings.
-- Fixed "FOR" code snippet
-
-### 0.2.0
-- More Code Snippets
-- Published to Extension Marketplace
-
-### 0.1.2
-- Added base Netlinx code snippets
-
-### 0.1.1
-- Beta release
