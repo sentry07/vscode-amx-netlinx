@@ -68,11 +68,11 @@
         },
         {
           "name": "constant.numeric.netlinx",
-          "match": "([-]?[.]?\\b[0-9\\.]+)[^:]"
+          "match": "([-]?[.]?\\b[0-9\\.]+)"
         },
         {
           "name": "constant.numeric.hex.netlinx",
-          "match": "((?:\\$|0x)[0-9a-fA-F]+)[^:]*"
+          "match": "((?:\\$|0x)[0-9a-fA-F]+)"
         }
       ]
     },
@@ -81,79 +81,79 @@
       "patterns": [
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(NETLINX_AXI_VERSION)"
+          "match": "(?i)\\b(NETLINX_AXI_VERSION)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(NULL_STR)"
+          "match": "(?i)\\b(NULL_STR)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(TRUE|FALSE)"
+          "match": "(?i)\\b(TRUE|FALSE)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(URL_Flg_TCP|URL_Flg_AcctInfoPresent|URL_Flg_Temp|URL_Flg_Stat_PrgNetLinx|URL_Flg_Stat_Mask|URL_Flg_Stat_Lookup|URL_Flg_Stat_Connecting|URL_Flg_Stat_Waiting|URL_Flg_Stat_Connected|IP_Addr_Flg_DHCP)"
+          "match": "(?i)\\b(URL_Flg_TCP|URL_Flg_AcctInfoPresent|URL_Flg_Temp|URL_Flg_Stat_PrgNetLinx|URL_Flg_Stat_Mask|URL_Flg_Stat_Lookup|URL_Flg_Stat_Connecting|URL_Flg_Stat_Waiting|URL_Flg_Stat_Connected|IP_Addr_Flg_DHCP)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(FIRST_LOCAL_PORT|FIRST_VIRTUAL_DEVICE|DYNAMIC_VIRTUAL_DEVICE)"
+          "match": "(?i)\\b(FIRST_LOCAL_PORT|FIRST_VIRTUAL_DEVICE|DYNAMIC_VIRTUAL_DEVICE)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(TIMELINE_ONCE|TIMELINE_REPEAT|TIMELINE_ABSOLUTE|TIMELINE_RELATIVE)"
+          "match": "(?i)\\b(TIMELINE_ONCE|TIMELINE_REPEAT|TIMELINE_ABSOLUTE|TIMELINE_RELATIVE)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(SOURCE_TYPE_NO_ADDRESS|SOURCE_TYPE_NEURON_ID|SOURCE_TYPE_IP_ADDRESS|SOURCE_TYPE_AXLINK|SOURCE_TYPE_NEURON_SUBNODE_ICSP|SOURCE_TYPE_NEURON_SUBNODE_PL|SOURCE_TYPE_IP_SOCKET_ADDRESS|SOURCE_TYPE_RS232|SOURCE_TYPE_INTERNAL|SOURCE_TYPE_MAC_ADDRESS|SOURCE_TYPE_IPv4_PORT|SOURCE_TYPE_IPv4_PORT_MAC_ADDRESS)"
+          "match": "(?i)\\b(SOURCE_TYPE_NO_ADDRESS|SOURCE_TYPE_NEURON_ID|SOURCE_TYPE_IP_ADDRESS|SOURCE_TYPE_AXLINK|SOURCE_TYPE_NEURON_SUBNODE_ICSP|SOURCE_TYPE_NEURON_SUBNODE_PL|SOURCE_TYPE_IP_SOCKET_ADDRESS|SOURCE_TYPE_RS232|SOURCE_TYPE_INTERNAL|SOURCE_TYPE_MAC_ADDRESS|SOURCE_TYPE_IPv4_PORT|SOURCE_TYPE_IPv4_PORT_MAC_ADDRESS)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(INTERNAL_QUEUE_SIZE_INDEX_INTERPRETER|INTERNAL_QUEUE_SIZE_INDEX_NOTIFICATION_MGR|INTERNAL_QUEUE_SIZE_INDEX_CONNECTION_MGR|INTERNAL_QUEUE_SIZE_INDEX_ROUTE_MGR|INTERNAL_QUEUE_SIZE_INDEX_DEVICE_MGR|INTERNAL_QUEUE_SIZE_INDEX_DIAGNOSTIC_MGR|INTERNAL_QUEUE_SIZE_INDEX_TCP_TX|INTERNAL_QUEUE_SIZE_INDEX_IPCONNECTION_MGR|INTERNAL_QUEUE_SIZE_INDEX_MESSAGE_DISPATCHER|INTERNAL_QUEUE_SIZE_INDEX_AXLINK_TX|INTERNAL_QUEUE_SIZE_INDEX_PHASTLINK_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSPLONTALK_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSP232_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSPIP_TX|INTERNAL_QUEUE_SIZE_INDEX_NI_DEVICE|INTERNAL_THRESHOLD_INDEX_INTERPRETER|INTERNAL_THRESHOLD_INDEX_LONTALK|INTERNAL_THRESHOLD_INDEX_IP)"
+          "match": "(?i)\\b(INTERNAL_QUEUE_SIZE_INDEX_INTERPRETER|INTERNAL_QUEUE_SIZE_INDEX_NOTIFICATION_MGR|INTERNAL_QUEUE_SIZE_INDEX_CONNECTION_MGR|INTERNAL_QUEUE_SIZE_INDEX_ROUTE_MGR|INTERNAL_QUEUE_SIZE_INDEX_DEVICE_MGR|INTERNAL_QUEUE_SIZE_INDEX_DIAGNOSTIC_MGR|INTERNAL_QUEUE_SIZE_INDEX_TCP_TX|INTERNAL_QUEUE_SIZE_INDEX_IPCONNECTION_MGR|INTERNAL_QUEUE_SIZE_INDEX_MESSAGE_DISPATCHER|INTERNAL_QUEUE_SIZE_INDEX_AXLINK_TX|INTERNAL_QUEUE_SIZE_INDEX_PHASTLINK_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSPLONTALK_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSP232_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSPIP_TX|INTERNAL_QUEUE_SIZE_INDEX_NI_DEVICE|INTERNAL_THRESHOLD_INDEX_INTERPRETER|INTERNAL_THRESHOLD_INDEX_LONTALK|INTERNAL_THRESHOLD_INDEX_IP)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(FILE_READ_ONLY|FILE_RW_NEW|FILE_RW_APPEND)"
+          "match": "(?i)\\b(FILE_READ_ONLY|FILE_RW_NEW|FILE_RW_APPEND)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(IP_TCP|IP_UDP|IP_UDP_2WAY)"
+          "match": "(?i)\\b(IP_TCP|IP_UDP(_2WAY)?)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(XML_ENCODE_TYPES|XML_ENCODE_CHAR_AS_LIST|XML_ENCODE_LE|XML_DECODE_TYPES|XML_DECODE_NO_PRESERVE)"
+          "match": "(?i)\\b(XML_ENCODE_TYPES|XML_ENCODE_CHAR_AS_LIST|XML_ENCODE_LE|XML_DECODE_TYPES|XML_DECODE_NO_PRESERVE)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(DUET_DEV_TYPE_DISPLAY_DEVICE|DUET_DEV_TYPE_RFIDSYSTEM_DEVICE|DUET_DEV_TYPE_LIGHTSYSTEM_DEVICE|DUET_DEV_TYPE_IO_DEVICE|DUET_DEV_TYPE_RELAY_DEVICE|DUET_DEV_TYPE_UPS|DUET_DEV_TYPE_AMPLIFIER|DUET_DEV_TYPE_AUDIO_CONFERENCER|DUET_DEV_TYPE_AUDIO_MIXER|DUET_DEV_TYPE_AUDIO_PROCESSOR|DUET_DEV_TYPE_AUDIO_TUNER_DEVICE|DUET_DEV_TYPE_CAMERA|DUET_DEV_TYPE_DIGITAL_MEDIA_ENCODER|DUET_DEV_TYPE_DIGITAL_MEDIA_DECODER|DUET_DEV_TYPE_DIGITAL_MEDIA_SERVER|DUET_DEV_TYPE_DSS|DUET_DEV_TYPE_DVR|DUET_DEV_TYPE_DISC_DEVICE|DUET_DEV_TYPE_DOCUMENT_CAMERA|DUET_DEV_TYPE_AUDIO_TAPE|DUET_DEV_TYPE_HVAC|DUET_DEV_TYPE_KEYPAD|DUET_DEV_TYPE_LIGHT|DUET_DEV_TYPE_MONITOR|DUET_DEV_TYPE_MOTOR|DUET_DEV_TYPE_MULTI_WINDOW|DUET_DEV_TYPE_POOL_SPA|DUET_DEV_TYPE_PREAMP_SURROUND_SOUND_PROCESSOR|DUET_DEV_TYPE_RECEIVER|DUET_DEV_TYPE_SECURITY_SYSTEM|DUET_DEV_TYPE_SENSOR_DEVICE|DUET_DEV_TYPE_SETTOP_BOX|DUET_DEV_TYPE_SLIDE_PROJECTOR|DUET_DEV_TYPE_SWITCHER|DUET_DEV_TYPE_TEXT_KEYPAD|DUET_DEV_TYPE_TV|DUET_DEV_TYPE_UTILITY|DUET_DEV_TYPE_VCR|DUET_DEV_TYPE_VIDEO_CONFERENCER|DUET_DEV_TYPE_VIDEO_PROCESSOR|DUET_DEV_TYPE_VIDEO_PROJECTOR|DUET_DEV_TYPE_VIDEO_WALL|DUET_DEV_TYPE_VOLUME_CONTROLLER|DUET_DEV_TYPE_WEATHER)"
+          "match": "(?i)\\b(DUET_DEV_TYPE_DISPLAY_DEVICE|DUET_DEV_TYPE_RFIDSYSTEM_DEVICE|DUET_DEV_TYPE_LIGHTSYSTEM_DEVICE|DUET_DEV_TYPE_IO_DEVICE|DUET_DEV_TYPE_RELAY_DEVICE|DUET_DEV_TYPE_UPS|DUET_DEV_TYPE_AMPLIFIER|DUET_DEV_TYPE_AUDIO_CONFERENCER|DUET_DEV_TYPE_AUDIO_MIXER|DUET_DEV_TYPE_AUDIO_PROCESSOR|DUET_DEV_TYPE_AUDIO_TUNER_DEVICE|DUET_DEV_TYPE_CAMERA|DUET_DEV_TYPE_DIGITAL_MEDIA_ENCODER|DUET_DEV_TYPE_DIGITAL_MEDIA_DECODER|DUET_DEV_TYPE_DIGITAL_MEDIA_SERVER|DUET_DEV_TYPE_DSS|DUET_DEV_TYPE_DVR|DUET_DEV_TYPE_DISC_DEVICE|DUET_DEV_TYPE_DOCUMENT_CAMERA|DUET_DEV_TYPE_AUDIO_TAPE|DUET_DEV_TYPE_HVAC|DUET_DEV_TYPE_KEYPAD|DUET_DEV_TYPE_LIGHT|DUET_DEV_TYPE_MONITOR|DUET_DEV_TYPE_MOTOR|DUET_DEV_TYPE_MULTI_WINDOW|DUET_DEV_TYPE_POOL_SPA|DUET_DEV_TYPE_PREAMP_SURROUND_SOUND_PROCESSOR|DUET_DEV_TYPE_RECEIVER|DUET_DEV_TYPE_SECURITY_SYSTEM|DUET_DEV_TYPE_SENSOR_DEVICE|DUET_DEV_TYPE_SETTOP_BOX|DUET_DEV_TYPE_SLIDE_PROJECTOR|DUET_DEV_TYPE_SWITCHER|DUET_DEV_TYPE_TEXT_KEYPAD|DUET_DEV_TYPE_TV|DUET_DEV_TYPE_UTILITY|DUET_DEV_TYPE_VCR|DUET_DEV_TYPE_VIDEO_CONFERENCER|DUET_DEV_TYPE_VIDEO_PROCESSOR|DUET_DEV_TYPE_VIDEO_PROJECTOR|DUET_DEV_TYPE_VIDEO_WALL|DUET_DEV_TYPE_VOLUME_CONTROLLER|DUET_DEV_TYPE_WEATHER)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(DUET_DEV_NOT_POLLED|DUET_DEV_POLLED)"
+          "match": "(?i)\\b(DUET_DEV_NOT_POLLED|DUET_DEV_POLLED)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(CLKMGR_MODE_NETWORK|CLKMGR_MODE_STANDALONE)"
+          "match": "(?i)\\b(CLKMGR_MODE_NETWORK|CLKMGR_MODE_STANDALONE)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(NORMAL_STANDBY|NORMAL_WAKE)"
+          "match": "(?i)\\b(NORMAL_STANDBY|NORMAL_WAKE)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(IP_MULTICAST_TTL_OPTION|IP_TTL_SUBNET|IP_TTL_SITE|IP_TTL_REGION|IP_TTL_CONTINENT|IP_TCP_NODELAY_OPTION|IP_NODELAY_ON|IP_NODELAY_OFF)"
+          "match": "(?i)\\b(IP_MULTICAST_TTL_OPTION|IP_TTL_SUBNET|IP_TTL_SITE|IP_TTL_REGION|IP_TTL_CONTINENT|IP_TCP_NODELAY_OPTION|IP_NODELAY_ON|IP_NODELAY_OFF)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(AMX_ERROR|AMX_WARNING|AMX_INFO|AMX_DEBUG)"
+          "match": "(?i)\\b(AMX_ERROR|AMX_WARNING|AMX_INFO|AMX_DEBUG)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(SMTP_ADDRESS|SMTP_PORT_NUMBER|SMTP_USERNAME|SMTP_PASSWORD|SMTP_REQUIRE_TLS|SMTP_FROM|SMTP_TLS_TRUE|SMTP_TLS_FALSE)"
+          "match": "(?i)\\b(SMTP_ADDRESS|SMTP_PORT_NUMBER|SMTP_USERNAME|SMTP_PASSWORD|SMTP_REQUIRE_TLS|SMTP_FROM|SMTP_TLS_TRUE|SMTP_TLS_FALSE)\\b"
         },
         {
           "name": "support.constant.netlinx_axi",
-          "match": "(?i)\\b(DO_PUSH_TIMED_INFINITE)"
+          "match": "(?i)\\b(DO_PUSH_TIMED_INFINITE)\\b"
         }
       ]
     },
@@ -162,7 +162,7 @@
       "patterns": [
         {
           "name": "entity.name.section.axcess",
-          "match": "(?i)\\b(DEFINE_CONSTANT|DEFINE_DEVICE|DEFINE_LATCHING|DEFINE_MUTUALLY_EXCLUSIVE|DEFINE_PROGRAM|DEFINE_START|DEFINE_TOGGLING|DEFINE_VARIABLE|DEFINE_COMBINE|DEFINE_CONNECT_LEVEL)"
+          "match": "(?i)\\b(DEFINE_CONSTANT|DEFINE_DEVICE|DEFINE_LATCHING|DEFINE_MUTUALLY_EXCLUSIVE|DEFINE_PROGRAM|DEFINE_START|DEFINE_TOGGLING|DEFINE_VARIABLE|DEFINE_COMBINE|DEFINE_CONNECT_LEVEL)\\b"
         },
         {
           "name": "meta.function.netlinx",
@@ -174,7 +174,7 @@
         },
         {
           "name": "entity.name.section.netlinx",
-          "match": "(?i)\\b(DEFINE_EVENT|DEFINE_TYPE)"
+          "match": "(?i)\\b(DEFINE_EVENT|DEFINE_TYPE)\\b"
         },
         {
           "name": "meta.function.netlinx",
@@ -197,7 +197,7 @@
         },
         {
           "name": "variable.other.netlinx",
-          "match": "(?i)\\b(RETURN)"
+          "match": "(?i)\\b(RETURN)\\b"
         }
       ]
     },
@@ -206,31 +206,31 @@
       "patterns": [
         {
           "name": "entity.name.type.netlinx",
-          "match": "(?i)\\b(DATA_EVENT|CHANNEL_EVENT|LEVEL_EVENT|BUTTON_EVENT|TIMELINE_EVENT|CUSTOM_EVENT)"
+          "match": "(?i)\\b(DATA_EVENT|CHANNEL_EVENT|LEVEL_EVENT|BUTTON_EVENT|TIMELINE_EVENT|CUSTOM_EVENT)\\b"
         },
         {
           "name": "support.constant.netlinx",
-          "match": "(?i)\\b(DATA.DEVICE.NUMBER|DATA.DEVICE.PORT|DATA.DEVICE.SYSTEM|DATA.DEVICE|DATA.NUMBER|DATA.SourceIP|DATA.SourcePort|DATA.TEXT)"
+          "match": "(?i)\\b(DATA.DEVICE.NUMBER|DATA.DEVICE.PORT|DATA.DEVICE.SYSTEM|DATA.DEVICE|DATA.NUMBER|DATA.SourceIP|DATA.SourcePort|DATA.TEXT)\\b"
         },
         {
           "name": "support.constant.netlinx",
-          "match": "(?i)\\b(CHANNEL.DEVICE.NUMBER|CHANNEL.DEVICE.PORT|CHANNEL.DEVICE.SYSTEM|CHANNEL.DEVICE|CHANNEL.CHANNEL)"
+          "match": "(?i)\\b(CHANNEL.DEVICE.NUMBER|CHANNEL.DEVICE.PORT|CHANNEL.DEVICE.SYSTEM|CHANNEL.DEVICE|CHANNEL.CHANNEL)\\b"
         },
         {
           "name": "support.constant.netlinx",
-          "match": "(?i)\\b(LEVEL.INPUT.DEVICE.NUMBER|LEVEL.INPUT.DEVICE.PORT|LEVEL.INPUT.DEVICE.SYSTEM|LEVEL.INPUT.DEVICE|LEVEL.INPUT.LEVEL|LEVEL.INPUT|LEVEL.VALUE)"
+          "match": "(?i)\\b(LEVEL.INPUT.DEVICE.NUMBER|LEVEL.INPUT.DEVICE.PORT|LEVEL.INPUT.DEVICE.SYSTEM|LEVEL.INPUT.DEVICE|LEVEL.INPUT.LEVEL|LEVEL.INPUT|LEVEL.VALUE)\\b"
         },
         {
           "name": "support.constant.netlinx",
-          "match": "(?i)\\b(BUTTON.INPUT.CHANNEL|BUTTON.INPUT.DEVICE.NUMBER|BUTTON.INPUT.DEVICE.PORT|BUTTON.INPUT.DEVICE.SYSTEM|BUTTON.INPUT.DEVICE|BUTTON.INPUT|BUTTON.HOLDTIME)"
+          "match": "(?i)\\b(BUTTON.INPUT.CHANNEL|BUTTON.INPUT.DEVICE.NUMBER|BUTTON.INPUT.DEVICE.PORT|BUTTON.INPUT.DEVICE.SYSTEM|BUTTON.INPUT.DEVICE|BUTTON.INPUT|BUTTON.HOLDTIME)\\b"
         },
         {
           "name": "support.constant.netlinx",
-          "match": "(?i)\\b(TIMELINE.ID|TIMELINE.SEQUENCE|TIMELINE.TIME|TIMELINE.RELATIVE|TIMELINE.REPETITION)"
+          "match": "(?i)\\b(TIMELINE.ID|TIMELINE.SEQUENCE|TIMELINE.TIME|TIMELINE.RELATIVE|TIMELINE.REPETITION)\\b"
         },
         {
           "name": "support.constant.netlinx",
-          "match": "(?i)\\b(CUSTOM.DEVICE.NUMBER|CUSTOM.DEVICE.PORT|CUSTOM.DEVICE.SYSTEM|CUSTOM.DEVICE|CUSTOM.ID|CUSTOM.TYPE|CUSTOM.FLAG|CUSTOM.VALUE1|CUSTOM.VALUE2|CUSTOM.VALUE3|CUSTOM.TEXT|CUSTOM.ENCODE|CUSTOM.SOURCEDEV.NUMBER|CUSTOM.SOURCEDEV.PORT|CUSTOM.SOURCEDEV.SYSTEM|CUSTOM.SOURCEDEV)"
+          "match": "(?i)\\b(CUSTOM.DEVICE.NUMBER|CUSTOM.DEVICE.PORT|CUSTOM.DEVICE.SYSTEM|CUSTOM.DEVICE|CUSTOM.ID|CUSTOM.TYPE|CUSTOM.FLAG|CUSTOM.VALUE1|CUSTOM.VALUE2|CUSTOM.VALUE3|CUSTOM.TEXT|CUSTOM.ENCODE|CUSTOM.SOURCEDEV.NUMBER|CUSTOM.SOURCEDEV.PORT|CUSTOM.SOURCEDEV.SYSTEM|CUSTOM.SOURCEDEV)\\b"
         }
       ]
     },
@@ -239,15 +239,15 @@
       "patterns": [
         {
           "name": "keyword.operator.netlinx",
-          "match": "[\\+\\-/*%<>=!&|]+"
+          "match": "[\\+\\-/*%<>=!&|]+\\b"
         },
         {
           "name": "keyword.operator.logical.netlinx",
-          "match": "(?i)\\b(AND|NOT|OR|XOR)"
+          "match": "(?i)\\b(AND|NOT|OR|XOR)\\b"
         },
         {
           "name": "keyword.operator.bitwise.netlinx",
-          "match": "(?i)\\b(BAND|BNOT|BOR|BXOR|LSHIFT|RSHIFT)"
+          "match": "(?i)\\b(BAND|BNOT|BOR|BXOR|LSHIFT|RSHIFT)\\b"
         }
       ]
     },
@@ -269,151 +269,151 @@
       "patterns": [
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(WAIT|CANCEL_WAIT|CANCEL_ALL_WAIT|PAUSE_WAIT|RESTART_WAIT|RESTART_ALL_WAIT)"
+          "match": "(?i)\\b(WAIT|CANCEL_WAIT|CANCEL_ALL_WAIT|PAUSE_WAIT|RESTART_WAIT|RESTART_ALL_WAIT)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(WAIT_UNTIL|CANCEL_WAIT_UNTIL|CANCEL_ALL_WAIT_UNTIL|PAUSE_ALL_WAIT|TIMED_WAIT_UNTIL)"
+          "match": "(?i)\\b(WAIT_UNTIL|CANCEL_WAIT_UNTIL|CANCEL_ALL_WAIT_UNTIL|PAUSE_ALL_WAIT|TIMED_WAIT_UNTIL)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(CREATE_BUFFER|CREATE_MULTI_BUFFER|CREATE_LEVEL)"
+          "match": "(?i)\\b(CREATE_BUFFER|CREATE_MULTI_BUFFER|CREATE_LEVEL)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(CLEAR_BUFFER|GET_BUFFER_CHAR|GET_MULTI_BUFFER_STRING|GET_BUFFER_STRING)"
+          "match": "(?i)\\b(CLEAR_BUFFER|GET_BUFFER_CHAR|GET_MULTI_BUFFER_STRING|GET_BUFFER_STRING)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(FIND_STRING|REMOVE_STRING|LEFT_STRING|MID_STRING|RIGHT_STRING|LOWER_STRING|UPPER_STRING|COMPARE_STRING)"
+          "match": "(?i)\\b(FIND_STRING|REMOVE_STRING|LEFT_STRING|MID_STRING|RIGHT_STRING|LOWER_STRING|UPPER_STRING|COMPARE_STRING)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(DEVICE_ID_STRING|DEVICE_ID|DEVICE_INFO)"
+          "match": "(?i)\\b(DEVICE_ID_STRING|DEVICE_ID|DEVICE_INFO)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(DO_PUSH_TIMED|DO_PUSH|DO_RELEASE|DO_CUSTOM_EVENT|REBUILD_EVENT)"
+          "match": "(?i)\\b(DO_PUSH_TIMED|DO_PUSH|DO_RELEASE|DO_CUSTOM_EVENT|REBUILD_EVENT)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(PROGRAM_NAME|MODULE_NAME)"
+          "match": "(?i)\\b(PROGRAM_NAME|MODULE_NAME)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(SET_TIMER|GET_TIMER)"
+          "match": "(?i)\\b(SET_TIMER|GET_TIMER)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(IF|ELSE|SELECT|ACTIVE|LONG_WHILE|MEDIUM_WHILE|WHILE|BREAK|FOR|NEXT|SWITCH|CASE|DEFAULT)"
+          "match": "(?i)\\b(IF|ELSE|SELECT|ACTIVE|LONG_WHILE|MEDIUM_WHILE|WHILE|BREAK|FOR|NEXT|SWITCH|CASE|DEFAULT)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(UNCOMBINE_DEVICES|COMBINE_DEVICES|UNCOMBINE_CHANNELS|COMBINE_CHANNELS|UNCOMBINE_LEVELS|COMBINE_LEVELS)"
+          "match": "(?i)\\b(UNCOMBINE_DEVICES|COMBINE_DEVICES|UNCOMBINE_CHANNELS|COMBINE_CHANNELS|UNCOMBINE_LEVELS|COMBINE_LEVELS)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(STRING|COMMAND|PUSH|RELEASE|HOLD|REPEAT|ONLINE|OFFLINE|ONERROR|STANDBY|WAKE)"
+          "match": "(?i)\\b(STRING|COMMAND|PUSH|RELEASE|HOLD|REPEAT|ONLINE|OFFLINE|ONERROR|STANDBY|WAKE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(SEND_COMMAND|SEND_LEVEL|SEND_STRING|REDIRECT_STRING)"
+          "match": "(?i)\\b(SEND_COMMAND|SEND_LEVEL|SEND_STRING|REDIRECT_STRING)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(TO|MIN_TO|OFF|ON|PULSE|TOTAL_OFF|SET_PULSE_TIME|GET_PULSE_TIME)"
+          "match": "(?i)\\b(TO|MIN_TO|OFF|ON|PULSE|TOTAL_OFF|SET_PULSE_TIME|GET_PULSE_TIME)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(CALL|SYSTEM_CALL)"
+          "match": "(?i)\\b(CALL|SYSTEM_CALL)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(DEFINE_MODULE|UNLOAD_DUET_MODULE|LOAD_DUET_MODULE)"
+          "match": "(?i)\\b(DEFINE_MODULE|UNLOAD_DUET_MODULE|LOAD_DUET_MODULE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(FIRST_LOCAL_PORT|STATIC_PORT_BINDING|STATIC_IP_BINDING|DYNAMIC_POLLED_PORT|DYNAMIC_APPLICATION_DEVICE)"
+          "match": "(?i)\\b(FIRST_LOCAL_PORT|STATIC_PORT_BINDING|STATIC_IP_BINDING|DYNAMIC_POLLED_PORT|DYNAMIC_APPLICATION_DEVICE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(REBOOT|DEVICE_STANDBY|DEVICE_WAKE)"
+          "match": "(?i)\\b(REBOOT|DEVICE_STANDBY|DEVICE_WAKE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(ITOA|ITOHEX|ATOI|ATOL|ATOF|FTOA|HEXTOI)"
+          "match": "(?i)\\b(ITOA|ITOHEX|ATOI|ATOL|ATOF|FTOA|HEXTOI)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(ABS_VALUE|MAX_VALUE|MIN_VALUE)"
+          "match": "(?i)\\b(ABS_VALUE|MAX_VALUE|MIN_VALUE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(STRING_TO_VARIABLE|LENGTH_VARIABLE_TO_STRING|VARIABLE_TO_STRING|XML_TO_VARIABLE|LENGTH_VARIABLE_TO_XML|VARIABLE_TO_XML)"
+          "match": "(?i)\\b(STRING_TO_VARIABLE|LENGTH_VARIABLE_TO_STRING|VARIABLE_TO_STRING|XML_TO_VARIABLE|LENGTH_VARIABLE_TO_XML|VARIABLE_TO_XML)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(TYPE_CAST|FORMAT|RAW_BE|RAW_LE)"
+          "match": "(?i)\\b(TYPE_CAST|FORMAT|RAW_BE|RAW_LE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(DATE_TO_DAY|DATE_TO_MONTH|DATE_TO_YEAR|DAY_OF_WEEK)"
+          "match": "(?i)\\b(DATE_TO_DAY|DATE_TO_MONTH|DATE_TO_YEAR|DAY_OF_WEEK)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(FILE_CLOSE|FILE_OPEN|FILE_DELETE|FILE_COPY|FILE_DIR|FILE_SETDIR|FILE_GETDIR|FILE_CREATEDIR|FILE_REMOVEDIR|FILE_READ_LINE|FILE_READ|FILE_RENAME|FILE_SEEK|FILE_WRITE_LINE|FILE_WRITE)"
+          "match": "(?i)\\b(FILE_CLOSE|FILE_OPEN|FILE_DELETE|FILE_COPY|FILE_DIR|FILE_SETDIR|FILE_GETDIR|FILE_CREATEDIR|FILE_REMOVEDIR|FILE_READ_LINE|FILE_READ|FILE_RENAME|FILE_SEEK|FILE_WRITE_LINE|FILE_WRITE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(IP_CLIENT_CLOSE|IP_CLIENT_OPEN|IP_SERVER_CLOSE|IP_SERVER_OPEN|IP_MC_SERVER_OPEN|IP_SET_OPTION|IP_BOUND_CLIENT_OPEN)"
+          "match": "(?i)\\b(IP_CLIENT_CLOSE|IP_CLIENT_OPEN|IP_SERVER_CLOSE|IP_SERVER_OPEN|IP_MC_SERVER_OPEN|IP_SET_OPTION|IP_BOUND_CLIENT_OPEN)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(MAX_LENGTH_ARRAY|MAX_LENGTH_STRING|SET_LENGTH_ARRAY|SET_LENGTH_STRING|LENGTH_ARRAY|LENGTH_STRING)"
+          "match": "(?i)\\b(MAX_LENGTH_ARRAY|MAX_LENGTH_STRING|SET_LENGTH_ARRAY|SET_LENGTH_STRING|LENGTH_ARRAY|LENGTH_STRING)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(INTERNAL_QUEUE_SIZE_SET|INTERNAL_QUEUE_SIZE_GET|INTERNAL_THRESHOLD_SET|INTERNAL_THRESHOLD_GET|DUET_MEM_SIZE_SET|DUET_MEM_SIZE_GET)"
+          "match": "(?i)\\b(INTERNAL_QUEUE_SIZE_SET|INTERNAL_QUEUE_SIZE_GET|INTERNAL_THRESHOLD_SET|INTERNAL_THRESHOLD_GET|DUET_MEM_SIZE_SET|DUET_MEM_SIZE_GET)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(TIME_TO_HOUR|TIME_TO_MINUTE|TIME_TO_SECOND|ASTRO_CLOCK)"
+          "match": "(?i)\\b(TIME_TO_HOUR|TIME_TO_MINUTE|TIME_TO_SECOND|ASTRO_CLOCK)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(TIMELINE_CREATE|TIMELINE_KILL|TIMELINE_RELOAD|TIMELINE_PAUSE|TIMELINE_RESTART|TIMELINE_SET|TIMELINE_GET|TIMELINE_ACTIVE|TIMELINE_DYNAMIC_ID)"
+          "match": "(?i)\\b(TIMELINE_CREATE|TIMELINE_KILL|TIMELINE_RELOAD|TIMELINE_PAUSE|TIMELINE_RESTART|TIMELINE_SET|TIMELINE_GET|TIMELINE_ACTIVE|TIMELINE_DYNAMIC_ID)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(GET_LAST|GET_MASTER_BUILD|GET_UNIQUE_ID|GET_SERIAL_NUMBER|GET_SYSTEM_NUMBER|SET_SYSTEM_NUMBER|GET_DNS_LIST|SET_DNS_LIST|GET_IP_ADDRESS|SET_IP_ADDRESS|SET_VALIDATION_CODE|GET_URL_LIST|ADD_URL_ENTRY|DELETE_URL_ENTRY|RANDOM_NUMBER)"
+          "match": "(?i)\\b(GET_LAST|GET_MASTER_BUILD|GET_UNIQUE_ID|GET_SERIAL_NUMBER|GET_SYSTEM_NUMBER|SET_SYSTEM_NUMBER|GET_DNS_LIST|SET_DNS_LIST|GET_IP_ADDRESS|SET_IP_ADDRESS|SET_VALIDATION_CODE|GET_URL_LIST|ADD_URL_ENTRY|DELETE_URL_ENTRY|RANDOM_NUMBER)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(SET_OUTDOOR_TEMPATURE|SET_OUTDOOR_TEMPERATURE)"
+          "match": "(?i)\\b(SET_OUTDOOR_TEMPATURE|SET_OUTDOOR_TEMPERATURE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(SET_VIRTUAL_LEVEL_COUNT|SET_VIRTUAL_CHANNEL_COUNT|SET_VIRTUAL_PORT_COUNT)"
+          "match": "(?i)\\b(SET_VIRTUAL_LEVEL_COUNT|SET_VIRTUAL_CHANNEL_COUNT|SET_VIRTUAL_PORT_COUNT)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(CLKMGR_IS_NETWORK_SOURCED|CLKMGR_SET_CLK_SOURCE|CLKMGR_IS_DAYLIGHTSAVINGS_ON|CLKMGR_SET_DAYLIGHTSAVINGS_MODE|CLKMGR_GET_TIMEZONE|CLKMGR_SET_TIMEZONE|CLKMGR_GET_RESYNC_PERIOD|CLKMGR_SET_RESYNC_PERIOD|CLKMGR_GET_DAYLIGHTSAVINGS_OFFSET|CLKMGR_SET_DAYLIGHTSAVINGS_OFFSET|CLKMGR_GET_ACTIVE_TIMESERVER|CLKMGR_SET_ACTIVE_TIMESERVER|CLKMGR_GET_TIMESERVERS|CLKMGR_ADD_USERDEFINED_TIMESERVER|CLKMGR_DELETE_USERDEFINED_TIMESERVER|CLKMGR_GET_START_DAYLIGHTSAVINGS_RULE|CLKMGR_SET_START_DAYLIGHTSAVINGS_RULE|CLKMGR_GET_END_DAYLIGHTSAVINGS_RULE|CLKMGR_SET_END_DAYLIGHTSAVINGS_RULE)"
+          "match": "(?i)\\b(CLKMGR_IS_NETWORK_SOURCED|CLKMGR_SET_CLK_SOURCE|CLKMGR_IS_DAYLIGHTSAVINGS_ON|CLKMGR_SET_DAYLIGHTSAVINGS_MODE|CLKMGR_GET_TIMEZONE|CLKMGR_SET_TIMEZONE|CLKMGR_GET_RESYNC_PERIOD|CLKMGR_SET_RESYNC_PERIOD|CLKMGR_GET_DAYLIGHTSAVINGS_OFFSET|CLKMGR_SET_DAYLIGHTSAVINGS_OFFSET|CLKMGR_GET_ACTIVE_TIMESERVER|CLKMGR_SET_ACTIVE_TIMESERVER|CLKMGR_GET_TIMESERVERS|CLKMGR_ADD_USERDEFINED_TIMESERVER|CLKMGR_DELETE_USERDEFINED_TIMESERVER|CLKMGR_GET_START_DAYLIGHTSAVINGS_RULE|CLKMGR_SET_START_DAYLIGHTSAVINGS_RULE|CLKMGR_GET_END_DAYLIGHTSAVINGS_RULE|CLKMGR_SET_END_DAYLIGHTSAVINGS_RULE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(SET_LOG_LEVEL|GET_LOG_LEVEL|AMX_LOG)"
+          "match": "(?i)\\b(SET_LOG_LEVEL|GET_LOG_LEVEL|AMX_LOG)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(SMTP_SERVER_CONFIG_SET|SMTP_SERVER_CONFIG_GET|SMTP_SEND)"
+          "match": "(?i)\\b(SMTP_SERVER_CONFIG_SET|SMTP_SERVER_CONFIG_GET|SMTP_SEND)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(EXP_VALUE|LOG_VALUE|LOG10_VALUE|POWER_VALUE|SQRT_VALUE)"
+          "match": "(?i)\\b(EXP_VALUE|LOG_VALUE|LOG10_VALUE|POWER_VALUE|SQRT_VALUE)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(_WC_ENCODE_INT|_WC_DECODE_INT|_WC_INT|_WC_TO_CH_INT|_CH_TO_WC_INT|_WC_FIND_STRING_INT|_WC_LEFT_STRING_INT|_WC_LOWER_STRING_INT|_WC_MID_STRING_INT|_WC_REMOVE_STRING_INT|_WC_RIGHT_STRING_INT|_WC_UPPER_STRING_INT|_WC_COMPARE_STRING_INT|_WC_GET_BUFFER_CHAR_INT|_WC_GET_BUFFER_STRING_INT|_WC_CONCAT_STRING_INT|_WC_FILE_OPEN_INT|_WC_FILE_CLOSE_INT|_WC_FILE_READ_INT|_WC_FILE_READ_LINE_INT|_WC_FILE_WRITE_INT|_WC_FILE_WRITE_LINE_INT)"
+          "match": "(?i)\\b(_WC_ENCODE_INT|_WC_DECODE_INT|_WC_INT|_WC_TO_CH_INT|_CH_TO_WC_INT|_WC_FIND_STRING_INT|_WC_LEFT_STRING_INT|_WC_LOWER_STRING_INT|_WC_MID_STRING_INT|_WC_REMOVE_STRING_INT|_WC_RIGHT_STRING_INT|_WC_UPPER_STRING_INT|_WC_COMPARE_STRING_INT|_WC_GET_BUFFER_CHAR_INT|_WC_GET_BUFFER_STRING_INT|_WC_CONCAT_STRING_INT|_WC_FILE_OPEN_INT|_WC_FILE_CLOSE_INT|_WC_FILE_READ_INT|_WC_FILE_READ_LINE_INT|_WC_FILE_WRITE_INT|_WC_FILE_WRITE_LINE_INT)\\b"
         }
       ]
     },
@@ -423,7 +423,7 @@
         {
           "name": "meta.variable.netlinx",
           "comment": "Full variable or constant definition line",
-          "match": "(?i)^\\s*(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT|LOCAL_VAR|STACK_VAR)?\\s*(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)(?:[ \\[])\\s*([\\w]+)(?:\\[[a-zA-Z0-9_]*\\])*(?:[ =\\t]+)*",
+          "match": "(?i)^\\s*\\b(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT|LOCAL_VAR|STACK_VAR)?\\b\\s*(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)(?:[ \\[])\\s*([\\w]+)(?:\\[[a-zA-Z0-9_]*\\])*(?:[ =\\t]+)*",
           "captures": {
             "1" : { "name": "storage.modifier.netlinx" },
             "2" : { "name": "storage.type.intrinsic.netlinx" },
@@ -447,11 +447,11 @@
       "patterns": [
         {
           "name": "support.type.netlinx",
-          "match": "(?i)\\b(STRUCTURE)"
+          "match": "(?i)\\b(STRUCTURE)\\b"
         },
         {
           "name": "support.type.netlinx_axi",
-          "match": "(?i)\\b(TBUTTON|TCHANNEL|TDATA|TLEVEL|TTIMELINE|TCUSTOM|URL_STRUCT|DNS_STRUCT|IP_ADDRESS_STRUCT|DEV_INFO_STRUCT|CLKMGR_TIMEOFFSET_STRUCT|CLKMGR_TIMESERVER_STRUCT)"
+          "match": "(?i)\\b(TBUTTON|TCHANNEL|TDATA|TLEVEL|TTIMELINE|TCUSTOM|URL_STRUCT|DNS_STRUCT|IP_ADDRESS_STRUCT|DEV_INFO_STRUCT|CLKMGR_TIMEOFFSET_STRUCT|CLKMGR_TIMESERVER_STRUCT)\\b"
         }
       ]
     },
@@ -460,7 +460,7 @@
       "patterns": [
         {
           "name": "variable.other.netlinx_axi",
-          "match": "(?i)\\b(PUSH_DEVICE|PUSH_CHANNEL|PUSH_DEVCHAN|RELEASE_DEVICE|RELEASE_CHANNEL|RELEASE_DEVCHAN|MASTER_SLOT|DAY|DATE|TIME|MASTER_SN|SYSTEM_NUMBER|LDATE|BUTTON|DV_CHANNEL|DATA|LEVEL|TIMELINE|CHANNEL|CUSTOM)"
+          "match": "(?i)\\b(PUSH_DEVICE|PUSH_CHANNEL|PUSH_DEVCHAN|RELEASE_DEVICE|RELEASE_CHANNEL|RELEASE_DEVCHAN|MASTER_SLOT|DAY|DATE|TIME|MASTER_SN|SYSTEM_NUMBER|LDATE|BUTTON|DV_CHANNEL|DATA|LEVEL|TIMELINE|CHANNEL|CUSTOM)\\b"
         }
       ]
     }
