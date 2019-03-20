@@ -1,5 +1,10 @@
 # Change Log
 
+### 0.3.3
+- Context menu organization
+- More snippets for storage types
+- Default editor config overrides
+
 ### 0.3.2
 - Bug fixes in syntax highlighting
 

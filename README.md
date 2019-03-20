@@ -2,8 +2,10 @@ This is a language package for programming AMX Netlinx control systems. It has s
 functions and code blocks, a build task, and shortcuts for the AMX programming help file, Netlinx Diagnostics, and the File Transfer utility. After installing
 the extension, please open your VSCode Settings (CTRL-Comma) and search for Netlinx and verify/update the locations in there.
 
-## New in this release (0.3.2):
-* Bug fixes in syntax highlighting
+## New in this release (0.3.3):
+* Context menu organization
+* More snippets for storage types
+* Default editor config overrides
 
 ## Known Issues
 * The code beautifier has an issue if you open a curly bracket on one line, and then close it after a line of code on a different line. Closing the curly bracket on a new line will fix it.

@@ -423,7 +423,7 @@
         {
           "name": "meta.variable.netlinx",
           "comment": "Full variable or constant definition line",
-          "match": "(?i)^\\s*\\b(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT|LOCAL_VAR|STACK_VAR)?\\b\\s*(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)(?:[ \\[])\\s*([\\w]+)(?:\\[[a-zA-Z0-9_]*\\])*(?:[ =\\t]+)*",
+          "match": "(?i)^\\s*\\b(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT|LOCAL_VAR|STACK_VAR)?\\b\\s*(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)\\b(?:[ \\[])?\\s*([\\w]+)(?:\\[[a-zA-Z0-9_]*\\])*(?:[ =\\t]+)*",
           "captures": {
             "1" : { "name": "storage.modifier.netlinx" },
             "2" : { "name": "storage.type.intrinsic.netlinx" },

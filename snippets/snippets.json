@@ -247,6 +247,41 @@
         "body": "MID_STRING(${1:var},${2:startpos},${3:endpos})$0",
         "description": "Mid_String() function call"
     },
+    "Integer Storage Type":{
+        "prefix": "integer",
+        "body": "INTEGER $0",
+        "description": "Integer variable type"
+    },
+    "SInteger Storage Type":{
+        "prefix": "sinteger",
+        "body": "SINTEGER $0",
+        "description": "Signed Integer variable type"
+    },
+    "Char Storage Type":{
+        "prefix": "char",
+        "body": "CHAR $0",
+        "description": "Char variable type"
+    },
+    "Long Storage Type":{
+        "prefix": "long",
+        "body": "LONG $0",
+        "description": "Long variable type"
+    },
+    "SLong Storage Type":{
+        "prefix": "slong",
+        "body": "SLONG $0",
+        "description": "SLong variable type"
+    },
+    "Float Storage Type":{
+        "prefix": "float",
+        "body": "FLOAT $0",
+        "description": "Float variable type"
+    },
+    "Double Storage Type":{
+        "prefix": "double",
+        "body": "DOUBLE $0",
+        "description": "Double variable type"
+    },
     "Local_Var Declaration":{
         "prefix": "local_var",
         "body": "LOCAL_VAR $0",
@@ -256,6 +291,11 @@
         "prefix": "local_var integer",
         "body": "LOCAL_VAR INTEGER $0",
         "description": "Local_Var Integer variable declaration"
+    },
+    "Local_Var SInteger Declaration":{
+        "prefix": "local_var sinteger",
+        "body": "LOCAL_VAR SINTEGER $0",
+        "description": "Local_Var Signed Integer variable declaration"
     },
     "Local_Var Char Declaration":{
         "prefix": "local_var char",
@@ -272,6 +312,16 @@
         "body": "LOCAL_VAR SLONG $0",
         "description": "Local_Var SLong variable declaration"
     },
+    "Local_Var Float Declaration":{
+        "prefix": "local_var float",
+        "body": "LOCAL_VAR FLOAT $0",
+        "description": "Local_Var Float variable declaration"
+    },
+    "Local_Var Double Declaration":{
+        "prefix": "local_var double",
+        "body": "LOCAL_VAR DOUBLE $0",
+        "description": "Local_Var Double variable declaration"
+    },
     "Stack_Var Declaration":{
         "prefix": "stack_var",
         "body": "STACK_VAR $0",
@@ -287,6 +337,11 @@
         "body": "STACK_VAR INTEGER $0",
         "description": "Stack_Var Integer context declaration"
     },
+    "Stack_Var SInteger Declaration":{
+        "prefix": "stack_var sinteger",
+        "body": "STACK_VAR SINTEGER $0",
+        "description": "Stack_Var Signed Integer context declaration"
+    },
     "Stack_Var Long Declaration":{
         "prefix": "stack_var long",
         "body": "STACK_VAR LONG $0",
@@ -296,6 +351,16 @@
         "prefix": "stack_var slong",
         "body": "STACK_VAR SLONG $0",
         "description": "Stack_Var SLong context declaration"
+    },
+    "Stack_Var Float Declaration":{
+        "prefix": "stack_var float",
+        "body": "STACK_VAR FLOAT $0",
+        "description": "Stack_Var Float context declaration"
+    },
+    "Stack_Var Double Declaration":{
+        "prefix": "stack_var double",
+        "body": "STACK_VAR DOUBLE $0",
+        "description": "Stack_Var Double context declaration"
     },
     "Send_Command Function":{
         "prefix": "send_command",

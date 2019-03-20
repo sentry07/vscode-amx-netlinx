@@ -7,7 +7,7 @@
 	"icon": "netlinx.png",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/sentry07/vscode-amx-netlinx.git"
+		"url": "https://github.com/sentry07/vscode-amx-netlinx.git"
 	},
 	"engines": {
 		"vscode": "^1.20.0"
@@ -113,79 +113,79 @@
 		"menus": {
 			"editor/context": [
 				{
-					"command": "extension.netlinx_openmodulefolder",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_openmodulefolder",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-include"
-				},
-				{
-					"command": "extension.netlinx_openlibraryfolder",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_openlibraryfolder",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-include"
-				},
-				{
-					"command": "extension.netlinx_openincludefolder",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_openincludefolder",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-include"
-				},
-				{
-					"command": "extension.netlinx_format",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_format",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-include"
-				},
-				{
-					"command": "extension.netlinx_transfer",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_transfer",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-include"
-				},
-				{
-					"command": "extension.netlinx_diag",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_diag",
-					"group": "navigation",
-					"when": "resourceLangId == netlinx-include"
-				},
-				{
 					"command": "extension.netlinx_help",
-					"group": "navigation",
+					"group": "navigation@1",
 					"when": "resourceLangId == netlinx-source"
 				},
 				{
 					"command": "extension.netlinx_help",
-					"group": "navigation",
+					"group": "navigation@1",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
+					"command": "extension.netlinx_diag",
+					"group": "navigation@2",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_diag",
+					"group": "navigation@2",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
+					"command": "extension.netlinx_transfer",
+					"group": "navigation@3",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_transfer",
+					"group": "navigation@3",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
+					"command": "extension.netlinx_format",
+					"group": "1_modification@1",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_format",
+					"group": "1_modification@1",
 					"when": "resourceLangId == netlinx-include"
 				},
 				{
 					"command": "extension.netlinx_compile",
-					"group": "navigation",
+					"group": "1_modification@2",
 					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_openincludefolder",
+					"group": "z_commands@1",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_openincludefolder",
+					"group": "z_commands@1",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
+					"command": "extension.netlinx_openlibraryfolder",
+					"group": "z_commands@2",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_openlibraryfolder",
+					"group": "z_commands@2",
+					"when": "resourceLangId == netlinx-include"
+				},
+				{
+					"command": "extension.netlinx_openmodulefolder",
+					"group": "z_commands@3",
+					"when": "resourceLangId == netlinx-source"
+				},
+				{
+					"command": "extension.netlinx_openmodulefolder",
+					"group": "z_commands@3",
+					"when": "resourceLangId == netlinx-include"
 				}
 			]
 		},
@@ -339,8 +339,18 @@
 			}
 		],
 		"configurationDefaults": {
-			"[amx-netlinx]": {
-				"editor.wordBasedSuggestions": false,
+			"[netlinx-source]": {
+				"editor.wordBasedSuggestions": true,
+				"editor.suggest.snippetsPreventQuickSuggestions": false,
+				"editor.quickSuggestions": {
+					"other": true,
+					"comments": false,
+					"strings": false
+				},
+				"editor.snippetSuggestions": "top"
+			},
+			"[netlinx-include]": {
+				"editor.wordBasedSuggestions": true,
 				"editor.suggest.snippetsPreventQuickSuggestions": false,
 				"editor.quickSuggestions": {
 					"other": true,
@@ -366,9 +376,9 @@
 		"@types/mocha": "^5.2.6"
 	},
 	"__metadata": {
-		"id": "",
-		"publisherId": "",
-		"publisherDisplayName": "sentry07"
+		"id": "sentry07.amx-netlinx",
+		"publisherId": "sentry07",
+		"publisherDisplayName": "Eric Walters"
 	},
 	"dependencies": {
 		"@types/vscode": "^1.17.0",
