@@ -1,5 +1,9 @@
 # Change Log
 
+### 0.4.0
+- Fixed build task generation - Use CTRL+SHIFT+B to build your source files!
+- Fixed problem matcher for newer NLRC.exe version output
+
 ### 0.3.3
 - Context menu organization
 - More snippets for storage types

@@ -51,8 +51,33 @@ function activate(context) {
         }
     });
 
-    registerTasks();
-    
+    function rebuildTaskList() {
+      if (taskProvider) {
+        taskProvider.dispose();
+        taskProvider = undefined;
+      }
+      if (!taskProvider) {
+        let netlinxPromise:Thenable<vscode.Task[]>| undefined = undefined;
+        taskProvider = vscode.tasks.registerTaskProvider('netlinx', {
+          provideTasks: () => {
+            if(!netlinxPromise) {
+              netlinxPromise = getCompileTasks();
+            }
+      
+            return netlinxPromise;
+          },
+          resolveTask: () => {
+            return undefined;
+          }
+        })
+      }
+    }
+  
+    vscode.workspace.onDidChangeConfiguration(rebuildTaskList);
+    vscode.workspace.onDidOpenTextDocument(rebuildTaskList);
+    vscode.window.onDidChangeActiveTextEditor(rebuildTaskList);
+    rebuildTaskList();
+
     context.subscriptions.push(netlinx_format);
     context.subscriptions.push(netlinx_compile);
     context.subscriptions.push(transfer_command);
@@ -64,21 +89,6 @@ function activate(context) {
 }
 exports.activate = activate;
 
-function registerTasks() {
-  let netlinxPromise:Thenable<vscode.Task[]>| undefined = undefined;
-  taskProvider = vscode.tasks.registerTaskProvider('netlinx', {
-    provideTasks: () => {
-      if(!netlinxPromise) {
-        netlinxPromise = getCompileTasks();
-      }
-
-      return netlinxPromise;
-    },
-    resolveTask: () => {
-      return undefined;
-    }
-  })
-}
 function compileNetlinx() {
     let editor = vscode.window.activeTextEditor;
     if (!editor) {
