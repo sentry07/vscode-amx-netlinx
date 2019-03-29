@@ -1,62 +1,60 @@
 import * as vscode from 'vscode';
 
 let taskProvider: vscode.Disposable | undefined;
-function activate(context) {
+function activate(context: vscode.ExtensionContext) {
     let netlinx_format = vscode.commands.registerCommand('extension.netlinx_format', () => {
         fixIndentation();
     });
+
     let netlinx_compile = vscode.commands.registerCommand('extension.netlinx_compile', () => {
         compileNetlinx();
     });
+    
     let transfer_command = vscode.commands.registerCommand("extension.netlinx_transfer", () => {
-        let transferLocation = vscode.workspace.getConfiguration("netlinx").transferLocation;
-        let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
-        term.sendText("\"" + transferLocation + "\"");
+        callShellCommand(vscode.workspace.getConfiguration("netlinx").transferLocation);
     });
+
     let diag_command = vscode.commands.registerCommand("extension.netlinx_diag", () => {
-        let diagLocation = vscode.workspace.getConfiguration("netlinx").diagLocation;
-        let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
-        term.sendText("\"" + diagLocation + "\"");
+        callShellCommand(vscode.workspace.getConfiguration("netlinx").diagLocation);
     });
+
     let help_command = vscode.commands.registerCommand("extension.netlinx_help", () => {
-        let helpLocation = vscode.workspace.getConfiguration("netlinx").helpLocation;
-        let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
-        term.sendText("\"" + helpLocation + "\"");
+        callShellCommand(vscode.workspace.getConfiguration("netlinx").helpLocation);
     });
+
     let open_includefolder = vscode.commands.registerCommand("extension.netlinx_openincludefolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").includesLocation.length){
-            let folderLocation = vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").includesLocation);
-            vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Includes"});
+            addFolderToWorkspace(vscode.workspace.getConfiguration("netlinx").includesLocation,"Global Includes")
         }
         else{
             vscode.window.showErrorMessage("Global Include folder not configured. Please open user settings and set the folder URI.");
         }
     });
+
     let open_libraryfolder = vscode.commands.registerCommand("extension.netlinx_openlibraryfolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").librariesLocation.length){
-            let folderLocation = vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").librariesLocation);
-            let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Libraries"});
+            addFolderToWorkspace(vscode.workspace.getConfiguration("netlinx").librariesLocation,"Global Libraries");
         }
         else{
             vscode.window.showErrorMessage("Global Library folder not configured. Please open user settings and set the folder URI.");
         }
     });
+
     let open_modulefolder = vscode.commands.registerCommand("extension.netlinx_openmodulefolder", () => {
         if (vscode.workspace.getConfiguration("netlinx").modulesLocation.length){
-            let folderLocation = vscode.Uri.file(vscode.workspace.getConfiguration("netlinx").modulesLocation);
-            let result = vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": "Global Modules"});
+            addFolderToWorkspace(vscode.workspace.getConfiguration("netlinx").modulesLocation,"Global Modules");
         }
         else{
             vscode.window.showErrorMessage("Global Module folder not configured. Please open user settings and set the folder URI.");
         }
     });
 
-    function rebuildTaskList() {
+    function rebuildTaskList(): void {
       if (taskProvider) {
         taskProvider.dispose();
         taskProvider = undefined;
       }
-      if (!taskProvider) {
+      if (!taskProvider && vscode.window.activeTextEditor.document.languageId === "netlinx-source") {
         let netlinxPromise:Thenable<vscode.Task[]>| undefined = undefined;
         taskProvider = vscode.tasks.registerTaskProvider('netlinx', {
           provideTasks: () => {
@@ -72,11 +70,6 @@ function activate(context) {
         })
       }
     }
-  
-    vscode.workspace.onDidChangeConfiguration(rebuildTaskList);
-    vscode.workspace.onDidOpenTextDocument(rebuildTaskList);
-    vscode.window.onDidChangeActiveTextEditor(rebuildTaskList);
-    rebuildTaskList();
 
     context.subscriptions.push(netlinx_format);
     context.subscriptions.push(netlinx_compile);
@@ -86,10 +79,29 @@ function activate(context) {
     context.subscriptions.push(open_includefolder);
     context.subscriptions.push(open_libraryfolder);
     context.subscriptions.push(open_modulefolder);
+
+    vscode.workspace.onDidChangeConfiguration(rebuildTaskList);
+    vscode.workspace.onDidOpenTextDocument(rebuildTaskList);
+    vscode.window.onDidChangeActiveTextEditor(rebuildTaskList);
+    rebuildTaskList();
 }
 exports.activate = activate;
 
-function compileNetlinx() {
+// Creates a terminal, calls the command, then closes the terminal
+function callShellCommand(shellCommand: string): void {
+  let term = vscode.window.createTerminal('netlinx', vscode.workspace.getConfiguration("netlinx").terminalLocation);
+  term.sendText("\"" + shellCommand + "\"",true);
+  term.sendText("exit",true);
+}
+
+// Adds a folder to the workspace
+function addFolderToWorkspace(folder: string, folderName: string): void {
+  let folderLocation = vscode.Uri.file(folder);
+  vscode.workspace.updateWorkspaceFolders(vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0, null, {"uri": folderLocation, "name": folderName});
+}
+
+// This function is the function called by the shortcut on the context menu, or CTRL+F12
+function compileNetlinx(): void {
     let editor = vscode.window.activeTextEditor;
     if (!editor) {
         vscode.window.showErrorMessage("Please open a valid AXS file.");
@@ -111,7 +123,7 @@ function compileNetlinx() {
     }
 }
 
-function getCompileCommand(fileName):string {
+function getCompileCommand(fileName: string): string {
   let compiler = new NetlinxCompiler();
   compiler.filepaths.push(fileName);
   if (vscode.workspace.getConfiguration("netlinx").includesLocation.length > 0) {
@@ -127,7 +139,8 @@ function getCompileCommand(fileName):string {
   return compiler.buildCommand();
 }
 
-function fixIndentation() {
+// Code beautifier called by context or keyboard shortcut
+function fixIndentation(): void {
     let editor = vscode.window.activeTextEditor;
     if (!editor) {
         vscode.window.showErrorMessage("Please open a valid Netlinx file.");
@@ -174,6 +187,7 @@ function fixIndentation() {
 interface NetlinxTaskDefinition extends vscode.TaskDefinition {
   buildPath: string;
 }
+
 async function getCompileTasks(): Promise<vscode.Task[]> {
   let workspaceRoot = vscode.workspace.rootPath;
   let emptyTasks: vscode.Task[] = [];
@@ -221,7 +235,7 @@ async function getCompileTasks(): Promise<vscode.Task[]> {
 }
 
 let _channel:vscode.OutputChannel;
-function getOutputChannel() {
+function getOutputChannel(): vscode.OutputChannel {
   if(!_channel) {
     _channel = vscode.window.createOutputChannel("Netlinx Compile");
   }
@@ -247,7 +261,7 @@ class NetlinxCompiler {
     compilerPath: string;
 }
 // this method is called when your extension is deactivated
-function deactivate() {
+function deactivate(): void {
   if(taskProvider) {
     taskProvider.dispose();
   }

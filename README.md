@@ -6,6 +6,10 @@ the extension, please open your VSCode Settings (CTRL-Comma) and search for Netl
 * Fixed build task generation - Use CTRL+SHIFT+B to build your source files!
 * Fixed problem matcher for newer NLRC.exe version output
 
+## Patch 0.4.1
+* Fixed build task showing up in other filetypes. Only shows up in .AXS file windows now.
+* Fixed excess terminal windows when opening helpfile/diagnostics/file transfer
+
 ## Known Issues
 * The code beautifier has an issue if you open a curly bracket on one line, and then close it after a line of code on a different line. Closing the curly bracket on a new line will fix it.
 
