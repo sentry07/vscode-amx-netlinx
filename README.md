@@ -6,12 +6,15 @@ the extension, please open your VSCode Settings (CTRL-Comma) and search for Netl
 * Fixed build task generation - Use CTRL+SHIFT+B to build your source files!
 * Fixed problem matcher for newer NLRC.exe version output
 
-## Patch 0.4.1
+### Patch 0.4.1
 * Fixed build task showing up in other filetypes. Only shows up in .AXS file windows now.
 * Fixed excess terminal windows when opening helpfile/diagnostics/file transfer
 
+### Patch 0.4.2
+* Rewrote code indentation logic in the code beautifier
+
 ## Known Issues
-* The code beautifier has an issue if you open a curly bracket on one line, and then close it after a line of code on a different line. Closing the curly bracket on a new line will fix it.
+* Single line code blocks without {} brackets will not be detected by the code beautifier and will not be indented properly
 
 ## TODO
 * Fix known issues
@@ -19,7 +22,8 @@ the extension, please open your VSCode Settings (CTRL-Comma) and search for Netl
 
 ## Quality of life recommendations:
 * Install "Open In Application" extension by Fabio Spampinato: https://marketplace.visualstudio.com/items?itemName=fabiospampinato.vscode-open-in-application
-* Use a different theme than the default themes for full syntax highlighting (Material Theme Darker High Contrast is amazing)
+* Install "Bracket Pair Colorizer 2" by CoenraadS: https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2
+* Use a different theme than the default themes for full syntax highlighting (One Dark Pro is amazing)
 
 ## Extension Commands
 

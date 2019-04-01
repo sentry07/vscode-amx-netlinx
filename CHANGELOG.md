@@ -1,8 +1,11 @@
 # Change Log
 
+### 0.4.2
+- Rewrote code indentation logic in the code beautifier
+
 ### 0.4.1
-* Fixed build task showing up in other filetypes. Only shows up in .AXS file windows now.
-* Fixed excess terminal windows when opening helpfile/diagnostics/file transfer
+- Fixed build task showing up in other filetypes. Only shows up in .AXS file windows now.
+- Fixed excess terminal windows when opening helpfile/diagnostics/file transfer
 
 ### 0.4.0
 - Fixed build task generation - Use CTRL+SHIFT+B to build your source files!
