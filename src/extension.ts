@@ -158,6 +158,8 @@ function fixIndentation(): void {
     let outputText = "";
     let docText = editor.document.getText();
     let docLines = docText.split(/\r?\n/);
+    let inComment = 0;    // If we're in a comment and what type
+
     for (var line = 0; line < docLines.length; line++) {
       let thisLine = docLines[line].trimLeft();
       let brOpen = thisLine.indexOf('{');
@@ -166,14 +168,86 @@ function fixIndentation(): void {
       let sqClose = thisLine.indexOf(']');
       let parOpen = thisLine.indexOf('(');
       let parClose = thisLine.indexOf(')');
-      let slComment = thisLine.indexOf('//');
-      let mlComment1Open = thisLine.indexOf('/*');
-      let mlComment1Close = thisLine.indexOf('*/');
-      let mlComment2Open = thisLine.indexOf('(*');
-      let mlComment2Close = thisLine.indexOf('*)');
+      let slComment = thisLine.indexOf('//');             // Single line comment
+      let mlComment1Open = thisLine.indexOf('/*');        // Multiline comment 1 open
+      let mlComment1Close = thisLine.indexOf('*/');       // Multiline comment 1 close
+      let mlComment2Open = thisLine.indexOf('(*');        // Multiline comment 2 open
+      let mlComment2Close = thisLine.indexOf('*)');       // Multiline comment 2 close
 
       // Indent Increase Rules
-      if (brOpen >= 0) {      // Squiggly bracket opening
+      if (inComment > 0) {
+        outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+        if (mlComment1Close >= 0 || mlComment2Close >= 0) {
+          inComment = 0;
+        }
+      }
+      else if (slComment === 0) {
+        outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+      }
+      else if (mlComment1Open === 0 || mlComment2Open === 0) {
+        if (mlComment1Open === 0 && mlComment1Close < 0 && mlComment2Close < 0) {
+          inComment = 1;
+        }
+        else if (mlComment2Open === 0 && mlComment1Close < 0 && mlComment2Close < 0) {
+          inComment = 2;
+        }
+        outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+      }
+      // Indentation Decrease Rules
+      else if (brClose >= 0 && brOpen < 0) {    // Squiggly Bracket Closing
+        if ((slComment >= 0 && slComment < brClose) ||
+          (mlComment1Open >= 0 && mlComment1Open < brClose && !(mlComment1Close >= 0 && mlComment1Close < brClose)) ||
+          (mlComment2Open >= 0 && mlComment2Open < brClose && !(mlComment2Close >= 0 && mlComment2Close < brClose))) {
+          outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+        }
+        else {
+          if (brClose === 0) {    // Check if it's a close bracket on a line by itself; if so, decrease indent on this line
+            console.log('brClose === 0: ' + thisLine)
+            indentLevel = indentLevel - 1;
+            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+          }
+          else {      // There's something else on the line before the close bracket, decrease indent on the next line
+            console.log('brClose != 0: ' + thisLine)
+            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+            indentLevel = indentLevel - 1;
+          }
+        }
+      }
+      else if (sqClose >= 0 && sqOpen < 0) {    // Square Bracket Closing
+        if ((slComment >= 0 && slComment < sqClose) ||
+          (mlComment1Open >= 0 && mlComment1Open < sqClose && !(mlComment1Close >= 0 && mlComment1Close < sqClose)) ||
+          (mlComment2Open >= 0 && mlComment2Open < sqClose && !(mlComment2Close >= 0 && mlComment2Close < sqClose))) {
+          outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+        }
+        else {
+          if (sqClose === 0) {    // Check if it's a close bracket on a line by itself; if so, decrease indent on this line
+            indentLevel = indentLevel - 1;
+            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+          }
+          else {      // There's something else on the line before the close bracket, decrease indent on the next line
+            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+            indentLevel = indentLevel - 1;
+          }
+        }
+      }
+      else if (parClose >= 0 && parOpen < 0) {   // Parenthesis closing
+        if ((slComment >= 0 && slComment < parClose) ||
+          (mlComment1Open >= 0 && mlComment1Open < parClose && !(mlComment1Close >= 0 && mlComment1Close < parClose)) ||
+          (mlComment2Open >= 0 && mlComment2Open < parClose && !(mlComment2Close >= 0 && mlComment2Close < parClose))) {
+          outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+        }
+        else {
+          if (parClose === 0) {    // Check if it's a close bracket on a line by itself; if so, decrease indent on this line
+            indentLevel = indentLevel - 1;
+            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+          }
+          else {      // There's something else on the line before the close bracket, decrease indent on the next line
+            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
+            indentLevel = indentLevel - 1;
+          }
+        }
+      }
+      else if (brOpen >= 0) {      // Squiggly bracket opening
         // Make sure there are no comment modifiers that break the opening bracket
         if ((slComment >= 0 && slComment < brOpen) ||
           (mlComment1Open >= 0 && mlComment1Open < brOpen && !(mlComment1Close >= 0 && mlComment1Close < brOpen)) ||
@@ -222,58 +296,6 @@ function fixIndentation(): void {
         }
       }
 
-      // Indentation Decrease Rules
-      else if (brClose >= 0) {    // Squiggly Bracket Closing
-        if ((slComment >= 0 && slComment < brClose) ||
-          (mlComment1Open >= 0 && mlComment1Open < brClose && !(mlComment1Close >= 0 && mlComment1Close < brClose)) ||
-          (mlComment2Open >= 0 && mlComment2Open < brClose && !(mlComment2Close >= 0 && mlComment2Close < brClose))) {
-          outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-        }
-        else {
-          if (brClose === 0) {    // Check if it's a close bracket on a line by itself; if so, decrease indent on this line
-            indentLevel = indentLevel - 1;
-            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-          }
-          else {      // There's something else on the line before the close bracket, decrease indent on the next line
-            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-            indentLevel = indentLevel - 1;
-          }
-        }
-      }
-      else if (sqClose >= 0) {    // Square Bracket Closing
-        if ((slComment >= 0 && slComment < sqClose) ||
-          (mlComment1Open >= 0 && mlComment1Open < sqClose && !(mlComment1Close >= 0 && mlComment1Close < sqClose)) ||
-          (mlComment2Open >= 0 && mlComment2Open < sqClose && !(mlComment2Close >= 0 && mlComment2Close < sqClose))) {
-          outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-        }
-        else {
-          if (sqClose === 0) {    // Check if it's a close bracket on a line by itself; if so, decrease indent on this line
-            indentLevel = indentLevel - 1;
-            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-          }
-          else {      // There's something else on the line before the close bracket, decrease indent on the next line
-            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-            indentLevel = indentLevel - 1;
-          }
-        }
-      }
-      else if (parClose >= 0) {   // Parenthesis closing
-        if ((slComment >= 0 && slComment < parClose) ||
-          (mlComment1Open >= 0 && mlComment1Open < parClose && !(mlComment1Close >= 0 && mlComment1Close < parClose)) ||
-          (mlComment2Open >= 0 && mlComment2Open < parClose && !(mlComment2Close >= 0 && mlComment2Close < parClose))) {
-          outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-        }
-        else {
-          if (parClose === 0) {    // Check if it's a close bracket on a line by itself; if so, decrease indent on this line
-            indentLevel = indentLevel - 1;
-            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-          }
-          else {      // There's something else on the line before the close bracket, decrease indent on the next line
-            outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
-            indentLevel = indentLevel - 1;
-          }
-        }
-      }
       else {
         outputText = outputText + ('\t'.repeat(indentLevel)) + thisLine + "\r";
       }

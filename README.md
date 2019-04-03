@@ -6,12 +6,15 @@ the extension, please open your VSCode Settings (CTRL-Comma) and search for Netl
 * Fixed build task generation - Use CTRL+SHIFT+B to build your source files!
 * Fixed problem matcher for newer NLRC.exe version output
 
-### Patch 0.4.1
-* Fixed build task showing up in other filetypes. Only shows up in .AXS file windows now.
-* Fixed excess terminal windows when opening helpfile/diagnostics/file transfer
+### Patch 0.4.3
+* Debugging the new indentation logic
 
 ### Patch 0.4.2
 * Rewrote code indentation logic in the code beautifier
+
+### Patch 0.4.1
+* Fixed build task showing up in other filetypes. Only shows up in .AXS file windows now.
+* Fixed excess terminal windows when opening helpfile/diagnostics/file transfer
 
 ## Known Issues
 * Single line code blocks without {} brackets will not be detected by the code beautifier and will not be indented properly

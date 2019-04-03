@@ -1,5 +1,8 @@
 # Change Log
 
+### 0.4.3
+- Debugging the new indentation logic
+
 ### 0.4.2
 - Rewrote code indentation logic in the code beautifier
 
