@@ -19,7 +19,6 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.netlinx_format",
-		"onCommand:extension.netlinx_compile",
 		"onCommand:extension.netlinx_transfer",
 		"onCommand:extension.netlinx_diag",
 		"onCommand:extension.netlinx_help",
@@ -34,10 +33,6 @@
 			{
 				"command": "extension.netlinx_format",
 				"title": "Netlinx Beautify Code"
-			},
-			{
-				"command": "extension.netlinx_compile",
-				"title": "Netlinx Compile Current File"
 			},
 			{
 				"command": "extension.netlinx_transfer",
@@ -154,11 +149,6 @@
 					"when": "resourceLangId == netlinx-include"
 				},
 				{
-					"command": "extension.netlinx_compile",
-					"group": "1_modification@2",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
 					"command": "extension.netlinx_openincludefolder",
 					"group": "z_commands@1",
 					"when": "resourceLangId == netlinx-source"
@@ -260,11 +250,6 @@
 				"command": "extension.netlinx_help",
 				"key": "ctrl+shift+f1",
 				"when": "resourceLangId == netlinx-include"
-			},
-			{
-				"command": "extension.netlinx_compile",
-				"key": "ctrl+f12",
-				"when": "resourceLangId == netlinx-source"
 			}
 		],
 		"languages": [

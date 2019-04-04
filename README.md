@@ -1,20 +1,13 @@
 This is a language package for programming AMX Netlinx control systems. It has syntax highlighting, a code beautifier, snippets for a lot of Netlinx
-functions and code blocks, a build task, and shortcuts for the AMX programming help file, Netlinx Diagnostics, and the File Transfer utility. After installing
+functions and code blocks, build tasks to compile your code, and shortcuts for the AMX programming help file, Netlinx Diagnostics, and the File Transfer utility. After installing
 the extension, please open your VSCode Settings (CTRL-Comma) and search for Netlinx and verify/update the locations in there.
 
-## New in this release (0.4.0):
-* Fixed build task generation - Use CTRL+SHIFT+B to build your source files!
-* Fixed problem matcher for newer NLRC.exe version output
+## Use CTRL+SHIFT+B or press F1 and type Build to compile your Netlinx code
 
-### Patch 0.4.3
-* Debugging the new indentation logic
-
-### Patch 0.4.2
-* Rewrote code indentation logic in the code beautifier
-
-### Patch 0.4.1
-* Fixed build task showing up in other filetypes. Only shows up in .AXS file windows now.
-* Fixed excess terminal windows when opening helpfile/diagnostics/file transfer
+## New in this release (0.5.0):
+* Added a second build task for compiling with local files only, ignoring the global folders.
+* Removed context shortcut and keyboard shortcut to compile the current file. Please use the Build tasks noted above.
+* Complete rewrite of the beautifier indentation code. Should be much more reliable now.
 
 ## Known Issues
 * Single line code blocks without {} brackets will not be detected by the code beautifier and will not be indented properly
