@@ -1,5 +1,9 @@
 # Change Log
 
+### 0.5.1
+- Updated Netlinx grammar for compiler directives and keywords (jwjames83)
+- Snippet updates (sentry07)
+
 ### 0.5.0
 - Added a second build task for compiling with local files only, ignoring the global folders.
 - Removed context shortcut and keyboard shortcut to compile the current file. Please use the Build tasks noted above.

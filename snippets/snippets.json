@@ -199,7 +199,7 @@
     },
     "Get_Last Function":{
         "prefix": "get_last",
-        "body": "GET_LAST(${1:array})\n$0",
+        "body": "GET_LAST(${1:array})$0",
         "description": "Get_Last() function call"
     },
     "Length_Array Function":{

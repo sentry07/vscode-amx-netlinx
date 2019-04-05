@@ -9,6 +9,10 @@ the extension, please open your VSCode Settings (CTRL-Comma) and search for Netl
 * Removed context shortcut and keyboard shortcut to compile the current file. Please use the Build tasks noted above.
 * Complete rewrite of the beautifier indentation code. Should be much more reliable now.
 
+## Patch 0.5.1
+* Updated Netlinx grammar for compiler directives and keywords (jwjames83)
+* Snippet updates (sentry07)
+
 ## Known Issues
 * Single line code blocks without {} brackets will not be detected by the code beautifier and will not be indented properly
 
