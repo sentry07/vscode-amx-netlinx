@@ -256,11 +256,15 @@
       "patterns": [
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\W(DEFINE|IF_DEFINED|IF_NOT_DEFINED|ELSE|END_IF|INCLUDE|WARN|DISABLE_WARNING|__NETLINX__|__TIME__|__DATE__|__LDATE__|__FILE__|__LINE__|__NAME__|___RESERVED___)"
+          "match": "(?i)#\\b(DEFINE|IF_DEFINED|IF_NOT_DEFINED|ELSE|END_IF|WARN|DISABLE_WARNING)\\b"
         },
         {
           "name": "keyword.control.netlinx",
-          "match": "(?i)\\b(INCLUDE)"
+          "match": "(?i)\\b(__NETLINX__|__TIME__|__DATE__|__LDATE__|__FILE__|__LINE__|__NAME__|__VERSION__|___RESERVED___)\\b"
+        },
+        {
+          "name": "keyword.control.netlinx",
+          "match": "(?i)#?\\b(INCLUDE)\\b"
         }
       ]
     },
