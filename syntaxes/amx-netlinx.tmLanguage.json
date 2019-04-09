@@ -3,7 +3,8 @@
   "fileTypes": [
     "axs",
     "axi",
-    "axb"
+	"axb",
+	"lib"
   ],
   "patterns": [
     {
@@ -80,80 +81,104 @@
       "comment": "NetLinx.axi Constants",
       "patterns": [
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(NETLINX_AXI_VERSION)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(NULL_STR)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(TRUE|FALSE)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(URL_Flg_TCP|URL_Flg_AcctInfoPresent|URL_Flg_Temp|URL_Flg_Stat_PrgNetLinx|URL_Flg_Stat_Mask|URL_Flg_Stat_Lookup|URL_Flg_Stat_Connecting|URL_Flg_Stat_Waiting|URL_Flg_Stat_Connected|IP_Addr_Flg_DHCP)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(FIRST_LOCAL_PORT|FIRST_VIRTUAL_DEVICE|DYNAMIC_VIRTUAL_DEVICE)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(TIMELINE_ONCE|TIMELINE_REPEAT|TIMELINE_ABSOLUTE|TIMELINE_RELATIVE)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(SOURCE_TYPE_NO_ADDRESS|SOURCE_TYPE_NEURON_ID|SOURCE_TYPE_IP_ADDRESS|SOURCE_TYPE_AXLINK|SOURCE_TYPE_NEURON_SUBNODE_ICSP|SOURCE_TYPE_NEURON_SUBNODE_PL|SOURCE_TYPE_IP_SOCKET_ADDRESS|SOURCE_TYPE_RS232|SOURCE_TYPE_INTERNAL|SOURCE_TYPE_MAC_ADDRESS|SOURCE_TYPE_IPv4_PORT|SOURCE_TYPE_IPv4_PORT_MAC_ADDRESS)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(INTERNAL_QUEUE_SIZE_INDEX_INTERPRETER|INTERNAL_QUEUE_SIZE_INDEX_NOTIFICATION_MGR|INTERNAL_QUEUE_SIZE_INDEX_CONNECTION_MGR|INTERNAL_QUEUE_SIZE_INDEX_ROUTE_MGR|INTERNAL_QUEUE_SIZE_INDEX_DEVICE_MGR|INTERNAL_QUEUE_SIZE_INDEX_DIAGNOSTIC_MGR|INTERNAL_QUEUE_SIZE_INDEX_TCP_TX|INTERNAL_QUEUE_SIZE_INDEX_IPCONNECTION_MGR|INTERNAL_QUEUE_SIZE_INDEX_MESSAGE_DISPATCHER|INTERNAL_QUEUE_SIZE_INDEX_AXLINK_TX|INTERNAL_QUEUE_SIZE_INDEX_PHASTLINK_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSPLONTALK_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSP232_TX|INTERNAL_QUEUE_SIZE_INDEX_ICSPIP_TX|INTERNAL_QUEUE_SIZE_INDEX_NI_DEVICE|INTERNAL_THRESHOLD_INDEX_INTERPRETER|INTERNAL_THRESHOLD_INDEX_LONTALK|INTERNAL_THRESHOLD_INDEX_IP)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(FILE_READ_ONLY|FILE_RW_NEW|FILE_RW_APPEND)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(IP_TCP|IP_UDP(_2WAY)?)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(XML_ENCODE_TYPES|XML_ENCODE_CHAR_AS_LIST|XML_ENCODE_LE|XML_DECODE_TYPES|XML_DECODE_NO_PRESERVE)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(DUET_DEV_TYPE_DISPLAY_DEVICE|DUET_DEV_TYPE_RFIDSYSTEM_DEVICE|DUET_DEV_TYPE_LIGHTSYSTEM_DEVICE|DUET_DEV_TYPE_IO_DEVICE|DUET_DEV_TYPE_RELAY_DEVICE|DUET_DEV_TYPE_UPS|DUET_DEV_TYPE_AMPLIFIER|DUET_DEV_TYPE_AUDIO_CONFERENCER|DUET_DEV_TYPE_AUDIO_MIXER|DUET_DEV_TYPE_AUDIO_PROCESSOR|DUET_DEV_TYPE_AUDIO_TUNER_DEVICE|DUET_DEV_TYPE_CAMERA|DUET_DEV_TYPE_DIGITAL_MEDIA_ENCODER|DUET_DEV_TYPE_DIGITAL_MEDIA_DECODER|DUET_DEV_TYPE_DIGITAL_MEDIA_SERVER|DUET_DEV_TYPE_DSS|DUET_DEV_TYPE_DVR|DUET_DEV_TYPE_DISC_DEVICE|DUET_DEV_TYPE_DOCUMENT_CAMERA|DUET_DEV_TYPE_AUDIO_TAPE|DUET_DEV_TYPE_HVAC|DUET_DEV_TYPE_KEYPAD|DUET_DEV_TYPE_LIGHT|DUET_DEV_TYPE_MONITOR|DUET_DEV_TYPE_MOTOR|DUET_DEV_TYPE_MULTI_WINDOW|DUET_DEV_TYPE_POOL_SPA|DUET_DEV_TYPE_PREAMP_SURROUND_SOUND_PROCESSOR|DUET_DEV_TYPE_RECEIVER|DUET_DEV_TYPE_SECURITY_SYSTEM|DUET_DEV_TYPE_SENSOR_DEVICE|DUET_DEV_TYPE_SETTOP_BOX|DUET_DEV_TYPE_SLIDE_PROJECTOR|DUET_DEV_TYPE_SWITCHER|DUET_DEV_TYPE_TEXT_KEYPAD|DUET_DEV_TYPE_TV|DUET_DEV_TYPE_UTILITY|DUET_DEV_TYPE_VCR|DUET_DEV_TYPE_VIDEO_CONFERENCER|DUET_DEV_TYPE_VIDEO_PROCESSOR|DUET_DEV_TYPE_VIDEO_PROJECTOR|DUET_DEV_TYPE_VIDEO_WALL|DUET_DEV_TYPE_VOLUME_CONTROLLER|DUET_DEV_TYPE_WEATHER)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(DUET_DEV_NOT_POLLED|DUET_DEV_POLLED)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(CLKMGR_MODE_NETWORK|CLKMGR_MODE_STANDALONE)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(NORMAL_STANDBY|NORMAL_WAKE)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(IP_MULTICAST_TTL_OPTION|IP_TTL_SUBNET|IP_TTL_SITE|IP_TTL_REGION|IP_TTL_CONTINENT|IP_TCP_NODELAY_OPTION|IP_NODELAY_ON|IP_NODELAY_OFF)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(AMX_ERROR|AMX_WARNING|AMX_INFO|AMX_DEBUG)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(SMTP_ADDRESS|SMTP_PORT_NUMBER|SMTP_USERNAME|SMTP_PASSWORD|SMTP_REQUIRE_TLS|SMTP_FROM|SMTP_TLS_TRUE|SMTP_TLS_FALSE)\\b"
         },
         {
-          "name": "support.constant.netlinx_axi",
+          "name": "constant.netlinx_axi",
           "match": "(?i)\\b(DO_PUSH_TIMED_INFINITE)\\b"
+        },
+        {
+          "name": "constant.netlinx_axi",
+          "match": "(?i)\\b(NETLINX_LOGIN_SUCCESS|NETLINX_LOGIN_FAIL|NETLINX_LOGOUT|MAX_LAST_LOGIN_INFO_LENGTH)\\b"
+        },
+        {
+          "name": "constant.netlinx_axi",
+          "match": "(?i)\\b(VALID_ACCOUNT|ERR_NAME_INVALID|ERR_PASSWORD_INVALID|ERR_INVALID_ACCOUNT|ERR_NO_AUTHORIZATION|ERR_INVALID_PARAMETER|ERR_USER_LOCKED_OUT|ERR_USER_ACCOUNT_EXPIRED|ERR_GENERAL_ERROR|ERR_AUTHENTICATION_ERROR)\\b"
+        },
+        {
+          "name": "constant.netlinx_axi",
+          "match": "(?i)\\b(LISTVIEW_ON_ROW_SELECT_EVENT|DATA_STRUCTURE_UNKNOWN|DATA_STRUCTURE_DATAFEED|DATA_STRUCTURE_DATARECORDSET|DATA_STRUCTURE_DATARECORD|DATA_STRUCTURE_DATAFIELD|DATA_MAX_CONTENT_FIELD_COUNT|DATA_MAX_METADATA_FIELD_COUNT|DATA_MAX_ID_LENGTH|DATA_MAX_NAME_LENGTH|DATA_MAX_DESCRIPTION_LENGTH|DATA_MAX_TYPE_LENGTH|DATA_MAX_FORMAT_LENGTH|DATA_MAX_SOURCE_LENGTH|DATA_MAX_VALUE_LENGTH|DATA_MAX_LABEL_LENGTH|DATA_MAX_URL_LENGTH)\\b"
+        },
+        {
+          "name": "constant.netlinx_axi",
+          "match": "(?i)\\b(DATA_TYPE_UNKNOWN|DATA_TYPE_STRING|DATA_TYPE_DATETIME|DATA_TYPE_DATE|DATA_TYPE_TIME|DATA_TYPE_IMAGE|DATA_FORMAT_URL|DATA_FORMAT_PHONE|DATA_FORMAT_EMAIL|DATA_FORMAT_ISO8601)\\b"
+        },
+        {
+          "name": "constant.netlinx_axi",
+          "match": "(?i)\\b(AUDITLOG_PRIV|CONFIGURATION_PRIV|DEVICECONFIG_PRIV|FTP_PRIV|HTTP_PRIV|NETWORKCONFIG_PRIV|PROGRAMPORT_PRIV|REMOTEUI_PRIV|SECURITYCONTROL_PRIV|SOFTWAREMANAGEMENT_PRIV|TERMINAL_PRIV|TPADMIN_PRIV|USER1_PRIV|USER2_PRIV|USER3_PRIV|USER4_PRIV|USERMANAGEMENT_PRIV)\\b"
+        },
+        {
+          "name": "constant.netlinx_axi",
+          "match": "(?i)\\b(TLS_IGNORE_CERTIFICATE_ERRORS|TLS_VALIDATE_CERTIFICATE)\\b"
         }
       ]
     },
@@ -209,27 +234,27 @@
           "match": "(?i)\\b(DATA_EVENT|CHANNEL_EVENT|LEVEL_EVENT|BUTTON_EVENT|TIMELINE_EVENT|CUSTOM_EVENT)\\b"
         },
         {
-          "name": "support.constant.netlinx",
+          "name": "constant.eventdata.netlinx",
           "match": "(?i)\\b(DATA.DEVICE.NUMBER|DATA.DEVICE.PORT|DATA.DEVICE.SYSTEM|DATA.DEVICE|DATA.NUMBER|DATA.SourceIP|DATA.SourcePort|DATA.TEXT)\\b"
         },
         {
-          "name": "support.constant.netlinx",
+          "name": "constant.eventdata.netlinx",
           "match": "(?i)\\b(CHANNEL.DEVICE.NUMBER|CHANNEL.DEVICE.PORT|CHANNEL.DEVICE.SYSTEM|CHANNEL.DEVICE|CHANNEL.CHANNEL)\\b"
         },
         {
-          "name": "support.constant.netlinx",
+          "name": "constant.eventdata.netlinx",
           "match": "(?i)\\b(LEVEL.INPUT.DEVICE.NUMBER|LEVEL.INPUT.DEVICE.PORT|LEVEL.INPUT.DEVICE.SYSTEM|LEVEL.INPUT.DEVICE|LEVEL.INPUT.LEVEL|LEVEL.INPUT|LEVEL.VALUE)\\b"
         },
         {
-          "name": "support.constant.netlinx",
+          "name": "constant.eventdata.netlinx",
           "match": "(?i)\\b(BUTTON.INPUT.CHANNEL|BUTTON.INPUT.DEVICE.NUMBER|BUTTON.INPUT.DEVICE.PORT|BUTTON.INPUT.DEVICE.SYSTEM|BUTTON.INPUT.DEVICE|BUTTON.INPUT|BUTTON.HOLDTIME)\\b"
         },
         {
-          "name": "support.constant.netlinx",
+          "name": "constant.eventdata.netlinx",
           "match": "(?i)\\b(TIMELINE.ID|TIMELINE.SEQUENCE|TIMELINE.TIME|TIMELINE.RELATIVE|TIMELINE.REPETITION)\\b"
         },
         {
-          "name": "support.constant.netlinx",
+          "name": "constant.eventdata.netlinx",
           "match": "(?i)\\b(CUSTOM.DEVICE.NUMBER|CUSTOM.DEVICE.PORT|CUSTOM.DEVICE.SYSTEM|CUSTOM.DEVICE|CUSTOM.ID|CUSTOM.TYPE|CUSTOM.FLAG|CUSTOM.VALUE1|CUSTOM.VALUE2|CUSTOM.VALUE3|CUSTOM.TEXT|CUSTOM.ENCODE|CUSTOM.SOURCEDEV.NUMBER|CUSTOM.SOURCEDEV.PORT|CUSTOM.SOURCEDEV.SYSTEM|CUSTOM.SOURCEDEV)\\b"
         }
       ]
@@ -418,7 +443,27 @@
         {
           "name": "keyword.control.netlinx",
           "match": "(?i)\\b(_WC_ENCODE_INT|_WC_DECODE_INT|_WC_INT|_WC_TO_CH_INT|_CH_TO_WC_INT|_WC_FIND_STRING_INT|_WC_LEFT_STRING_INT|_WC_LOWER_STRING_INT|_WC_MID_STRING_INT|_WC_REMOVE_STRING_INT|_WC_RIGHT_STRING_INT|_WC_UPPER_STRING_INT|_WC_COMPARE_STRING_INT|_WC_GET_BUFFER_CHAR_INT|_WC_GET_BUFFER_STRING_INT|_WC_CONCAT_STRING_INT|_WC_FILE_OPEN_INT|_WC_FILE_CLOSE_INT|_WC_FILE_READ_INT|_WC_FILE_READ_LINE_INT|_WC_FILE_WRITE_INT|_WC_FILE_WRITE_LINE_INT)\\b"
-        }
+		},
+		{
+			"name": "keyword.control.netlinx",
+			"match": "(?i)\\b(VALIDATE_NETLINX_ACCOUNT|AUDIT_NETLINX_SESSION_EVENT|AUDIT_NETLINX_GENERIC_EVENT|VALIDATE_NETLINX_ACCOUNT_WITH_PERMISSION|AUTHENTICATE_CERTIFICATE)\\b"
+		},
+		{
+			"name": "keyword.control.netlinx",
+			"match": "(?i)\\b(GET_AVAILABLE_FLASH_DISK_SPACE|GET_MAX_FLASH_DISK_SPACE)\\b"
+		},
+		{
+			"name": "keyword.control.netlinx",
+			"match": "(?i)\\b(DATA_CREATE_FEED|DATA_DELETE_FEED|DATA_PUBLISH_FEED|DATA_GET_PUBLISHED_FEED|DATA_ADD_RECORD|DATA_GET_EVENT_RECORD)\\b"
+		},
+		{
+			"name": "keyword.control.netlinx",
+			"match": "(?i)\\b(_WC_DATA_CREATE_FEED|_WC_DATA_ADD_RECORD|_WC_DATA_GET_EVENT_RECORD)\\b"
+		},
+		{
+			"name": "keyword.control.netlinx",
+			"match": "(?i)\\b(SSH_CLIENT_CLOSE|SSH_CLIENT_OPEN|TLS_CLIENT_CLOSE|TLS_CLIENT_OPEN)\\b"
+		}
       ]
     },
     "storage_netlinx": {
@@ -450,12 +495,16 @@
       "comment": "Custom Data Types",
       "patterns": [
         {
-          "name": "support.type.netlinx",
+          "name": "support.type.primitive.netlinx",
           "match": "(?i)\\b(STRUCTURE)\\b"
         },
         {
-          "name": "support.type.netlinx_axi",
+          "name": "support.type.primitive.struct.netlinx_axi",
           "match": "(?i)\\b(TBUTTON|TCHANNEL|TDATA|TLEVEL|TTIMELINE|TCUSTOM|URL_STRUCT|DNS_STRUCT|IP_ADDRESS_STRUCT|DEV_INFO_STRUCT|CLKMGR_TIMEOFFSET_STRUCT|CLKMGR_TIMESERVER_STRUCT)\\b"
+        },
+        {
+          "name": "support.type.primitive.struct.netlinx_axi",
+          "match": "(?i)\\b(DATA_FEED|DATA_FIELD|DATA_RECORD|WC_DATA_FEED|WC_DATA_FIELD|WC_DATA_RECORD|LAST_LOGIN_INFO)\\b"
         }
       ]
     },

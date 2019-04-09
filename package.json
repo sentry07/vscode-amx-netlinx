@@ -272,7 +272,8 @@
 				],
 				"extensions": [
 					".axi",
-					".axb"
+					".axb",
+					".lib"
 				],
 				"configuration": "./language-configuration.json"
 			}

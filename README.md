@@ -2,12 +2,17 @@ This is a language package for programming AMX Netlinx control systems. It has s
 functions and code blocks, build tasks to compile your code, and shortcuts for the AMX programming help file, Netlinx Diagnostics, and the File Transfer utility. After installing
 the extension, please open your VSCode Settings (CTRL-Comma) and search for Netlinx and verify/update the locations in there.
 
-## Use CTRL+SHIFT+B or press F1 and type Build to compile your Netlinx code
+## Use CTRL+SHIFT+B to compile your Netlinx code
 
 ## New in this release (0.5.0):
 * Added a second build task for compiling with local files only, ignoring the global folders.
 * Removed context shortcut and keyboard shortcut to compile the current file. Please use the Build tasks noted above.
 * Complete rewrite of the beautifier indentation code. Should be much more reliable now.
+
+## Patch 0.5.2
+* Updated Netlinx grammar with most recent Netlinx.AXI constants and function names
+* Updated grammar types to get better theme integration support
+* Added .LIB file extension support
 
 ## Patch 0.5.1
 * Updated Netlinx grammar for compiler directives and keywords (jwjames83)

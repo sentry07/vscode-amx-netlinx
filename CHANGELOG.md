@@ -1,5 +1,10 @@
 # Change Log
 
+### 0.5.2
+- Updated Netlinx grammar with most recent Netlinx.AXI constants and function names
+- Updated grammar types to get better theme integration support
+- Added .LIB file extension support
+
 ### 0.5.1
 - Updated Netlinx grammar for compiler directives and keywords (jwjames83)
 - Snippet updates (sentry07)
