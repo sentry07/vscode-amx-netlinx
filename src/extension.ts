@@ -144,7 +144,7 @@ function getCompileCommand(fileName: string, useGlobal: boolean): string {
 function countChars(haystack: string, needle: string): number {
   let count = 0;
   for (var i = 0; i < haystack.length; i++) {
-    if (haystack[i] === needle){
+    if (haystack[i] === needle) {
       count++;
     }
   }
@@ -173,6 +173,8 @@ function fixIndentation(): void {
     let outputText = "";
     let indentLevel = 0;                                        // Current line indent level (number of tabs)
     let inComment = 0;                                          // If we're in a comment and what level
+    let startingComment = 0;                                    // Check if this line starts a comment
+    let endingComment = 0;                                      // Check if this line ends a comment
     let docText = editor.document.getText();                    // Get the full text of the editor
     let docLines = docText.split(/\r?\n/);                      // Split into lines
 
@@ -183,39 +185,47 @@ function fixIndentation(): void {
     let reDeCom4 = /((?:\(\*|\/\*).*)/gm;                       // Opening multiline comment
 
     for (var line = 0; line < docLines.length; line++) {
+      startingComment = 0;
+      endingComment = 0;
       let thisLine = docLines[line];
       let thisLineTrimmed = docLines[line].trimLeft();
-      let thisLineClean = docLines[line].trimLeft().replace(reDeCom1,"").replace(reDeCom2,"");      // Remove any single line comments and fully enclosed multiline comments
+      let thisLineClean = docLines[line].trimLeft().replace(reDeCom1, "").replace(reDeCom2, "");      // Remove any single line comments and fully enclosed multiline comments
 
       if (reDeCom3.test(thisLineClean) && inComment > 0) {        // If a multiline comment closes on this line, decrease our comment level
         inComment = inComment - 1;
+        if (inComment === 0) {
+          endingComment = 1;
+        }
       }
       if (reDeCom4.test(thisLineClean)) {                         // If a multiline comment opens on this line, increase our comment level
+        if (inComment === 0) {
+          startingComment = 1;                                    // If this line starts a multiline comment, it still needs to be checked
+        }
         inComment = inComment + 1;
       }
 
-      thisLineClean = thisLineClean.replace(reDeCom3,"").replace(reDeCom4,"");            // Remove any code that we think is inside multiline comments
-      let brOpen = countChars(thisLineClean,'{') - countChars(thisLineClean,'}');         // Check the delta for squiggly brackets
-      let sqOpen = countChars(thisLineClean,'[') - countChars(thisLineClean,']');         // Check the delta for square brackets
-      let parOpen = countChars(thisLineClean,'(') - countChars(thisLineClean,')');        // Check the delta for parenthesis
-      let indentDelta = brOpen + sqOpen + parOpen;                                        // Calculate total delta
+      thisLineClean = thisLineClean.replace(reDeCom3, "").replace(reDeCom4, "");            // Remove any code that we think is inside multiline comments
+      let brOpen = countChars(thisLineClean, '{') - countChars(thisLineClean, '}');         // Check the delta for squiggly brackets
+      let sqOpen = countChars(thisLineClean, '[') - countChars(thisLineClean, ']');         // Check the delta for square brackets
+      let parOpen = countChars(thisLineClean, '(') - countChars(thisLineClean, ')');        // Check the delta for parenthesis
+      let indentDelta = brOpen + sqOpen + parOpen;                                          // Calculate total delta
 
       // Indent Increase Rules
-      if (inComment > 0) {                                                                // If we're in a multiline comment, just leave the line alone
+      if ((inComment > 0 && !startingComment) || (!inComment && endingComment)) {           // If we're in a multiline comment, just leave the line alone unless it's the start of a ML comment
         outputText = outputText + thisLine + "\r";
       }
       else if (indentDelta > 0) {                                                         // If we're increasing indent delta because of this line, the add it, then increase indent
         outputText = outputText + ('\t'.repeat(indentLevel)) + thisLineTrimmed + "\r";
-        indentLevel = indentLevel + indentDelta;
+        indentLevel = (indentLevel + indentDelta >= 0) ? (indentLevel + indentDelta) : 0;
       }
       // If we're decreasing delta, and the line starts with the character that is decreasing it, then decrease first, and then add this line
       else if (indentDelta < 0 && (thisLineClean[0] === '}' || thisLineClean[0] === ']' || thisLineClean[0] === ')')) {
-        indentLevel = indentLevel + indentDelta;
+        indentLevel = (indentLevel + indentDelta >= 0) ? (indentLevel + indentDelta) : 0;
         outputText = outputText + ('\t'.repeat(indentLevel)) + thisLineTrimmed + "\r";
       }
       else if (indentDelta < 0) {                                                         // If we're decreasing delta but the first character isn't the cause, then we're still inside the block
         outputText = outputText + ('\t'.repeat(indentLevel)) + thisLineTrimmed + "\r";
-        indentLevel = indentLevel + indentDelta;
+        indentLevel = (indentLevel + indentDelta >= 0) ? (indentLevel + indentDelta) : 0;
       }
       else {                                                                              // indentDelta === 0; do nothing except add the line with the indent
         outputText = outputText + ('\t'.repeat(indentLevel)) + thisLineTrimmed + "\r";
@@ -252,7 +262,7 @@ async function getCompileTasks(): Promise<vscode.Task[]> {
     let executable = 'c:\\windows\\system32\\cmd.exe';
 
     // Create "Local" build, ignoring global folders
-    let buildCommand = getCompileCommand(doc.fileName,false);
+    let buildCommand = getCompileCommand(doc.fileName, false);
 
     let taskDef: NetlinxTaskDefinition = {
       type: 'shell',
@@ -268,7 +278,7 @@ async function getCompileTasks(): Promise<vscode.Task[]> {
     result.push(task);
 
     // Create "Global" build, including global folders
-    buildCommand = getCompileCommand(doc.fileName,true);
+    buildCommand = getCompileCommand(doc.fileName, true);
 
     taskDef = {
       type: 'shell',

@@ -9,6 +9,9 @@ the extension, please open your VSCode Settings (CTRL-Comma) and search for Netl
 * Removed context shortcut and keyboard shortcut to compile the current file. Please use the Build tasks noted above.
 * Complete rewrite of the beautifier indentation code. Should be much more reliable now.
 
+## Patch 0.5.3
+* More code beautifier tweaking
+
 ## Patch 0.5.2
 * Updated Netlinx grammar with most recent Netlinx.AXI constants and function names
 * Updated grammar types to get better theme integration support

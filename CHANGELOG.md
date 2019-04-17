@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.5.3
+- More code beautifier tweaking
+
 ### 0.5.2
 - Updated Netlinx grammar with most recent Netlinx.AXI constants and function names
 - Updated grammar types to get better theme integration support
