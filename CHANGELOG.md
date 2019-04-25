@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.5.4
+- Fixed beautifier finding false positives inside string literals
+
 ## 0.5.3
 - More code beautifier tweaking
 

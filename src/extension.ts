@@ -183,6 +183,7 @@ function fixIndentation(): void {
     let reDeCom2 = /((?:\(\*|\/\*).*(?:\*\)|\*\/))/gm;          // Fully enclosed multiline comment
     let reDeCom3 = /(.*(?:\*\)|\*\/))/gm;                       // Closing multiline comment
     let reDeCom4 = /((?:\(\*|\/\*).*)/gm;                       // Opening multiline comment
+    let reString = /'[^']*'/gm;
 
     for (var line = 0; line < docLines.length; line++) {
       startingComment = 0;
@@ -205,6 +206,7 @@ function fixIndentation(): void {
       }
 
       thisLineClean = thisLineClean.replace(reDeCom3, "").replace(reDeCom4, "");            // Remove any code that we think is inside multiline comments
+      thisLineClean = thisLineClean.replace(reString, "");                                  // Remove any string literals from the line so we don't get false positives
       let brOpen = countChars(thisLineClean, '{') - countChars(thisLineClean, '}');         // Check the delta for squiggly brackets
       let sqOpen = countChars(thisLineClean, '[') - countChars(thisLineClean, ']');         // Check the delta for square brackets
       let parOpen = countChars(thisLineClean, '(') - countChars(thisLineClean, ')');        // Check the delta for parenthesis
