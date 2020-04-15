@@ -2,7 +2,7 @@
 	"name": "amx-netlinx",
 	"displayName": "AMX Netlinx",
 	"description": "Extension for AMX Netlinx. Includes syntax highlighting and compiling.",
-	"version": "0.5.4",
+	"version": "0.6.0",
 	"publisher": "sentry07",
 	"icon": "netlinx.png",
 	"repository": {
@@ -15,25 +15,23 @@
 	},
 	"categories": [
 		"Programming Languages",
-		"Snippets"
+		"Snippets",
+		"Formatters"
 	],
 	"activationEvents": [
-		"onCommand:extension.netlinx_format",
 		"onCommand:extension.netlinx_transfer",
 		"onCommand:extension.netlinx_diag",
 		"onCommand:extension.netlinx_help",
 		"onCommand:extension.netlinx_openincludefolder",
 		"onCommand:extension.netlinx_openlibraryfolder",
 		"onCommand:extension.netlinx_openmodulefolder",
-		"onCommand:workbench.action.tasks.runTask"
+		"onCommand:workbench.action.tasks.runTask",
+		"onLanguage:netlinx-source",
+		"onLanguage:netlinx-include"
 	],
 	"main": "./out/extension",
 	"contributes": {
 		"commands": [
-			{
-				"command": "extension.netlinx_format",
-				"title": "Netlinx Beautify Code"
-			},
 			{
 				"command": "extension.netlinx_transfer",
 				"title": "Open AMX File Transfer Utility"
@@ -139,16 +137,6 @@
 					"when": "resourceLangId == netlinx-include"
 				},
 				{
-					"command": "extension.netlinx_format",
-					"group": "1_modification@1",
-					"when": "resourceLangId == netlinx-source"
-				},
-				{
-					"command": "extension.netlinx_format",
-					"group": "1_modification@1",
-					"when": "resourceLangId == netlinx-include"
-				},
-				{
 					"command": "extension.netlinx_openincludefolder",
 					"group": "z_commands@1",
 					"when": "resourceLangId == netlinx-source"
@@ -229,16 +217,6 @@
 			{
 				"command": "extension.netlinx_diag",
 				"key": "ctrl+shift+f3",
-				"when": "resourceLangId == netlinx-include"
-			},
-			{
-				"command": "extension.netlinx_format",
-				"key": "ctrl+shift+f2",
-				"when": "resourceLangId == netlinx-source"
-			},
-			{
-				"command": "extension.netlinx_format",
-				"key": "ctrl+shift+f2",
 				"when": "resourceLangId == netlinx-include"
 			},
 			{

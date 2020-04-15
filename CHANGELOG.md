@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.6.0
+- Added document format provider
+
 ## 0.5.4
 - Fixed beautifier finding false positives inside string literals
 

@@ -3,8 +3,8 @@
   "fileTypes": [
     "axs",
     "axi",
-	"axb",
-	"lib"
+    "axb",
+    "lib"
   ],
   "patterns": [
     {
@@ -197,8 +197,12 @@
           "name": "meta.function.netlinx",
           "match": "(?i)\\b(DEFINE_CALL)\\s+\\\"(\\w+)\\\"",
           "captures": {
-            "1" : { "name" : "keyword.control.netlinx" },
-            "2" : { "name" : "entity.name.function.netlinx" }
+            "1": {
+              "name": "keyword.control.netlinx"
+            },
+            "2": {
+              "name": "entity.name.function.netlinx"
+            }
           }
         },
         {
@@ -210,8 +214,12 @@
           "comment": "Match a function definition without a return value.",
           "match": "(?i)\\b(DEFINE_FUNCTION)\\s+(\\w+)\\s*\\(",
           "captures": {
-            "1" : { "name" : "keyword.control.netlinx" },
-            "2" : { "name" : "entity.name.function.netlinx" }
+            "1": {
+              "name": "keyword.control.netlinx"
+            },
+            "2": {
+              "name": "entity.name.function.netlinx"
+            }
           }
         },
         {
@@ -219,9 +227,15 @@
           "comment": "Match a function definition with a return value.",
           "match": "(?i)\\b(DEFINE_FUNCTION)\\s+([a-zA-Z0-9_\\[\\]]+)\\s+(\\w*)\\s*\\(",
           "captures": {
-            "1" : { "name": "keyword.control.netlinx" },
-            "2" : { "name": "storage.type.intrinsic.netlinx" },
-            "3" : { "name": "entity.name.function.netlinx" }
+            "1": {
+              "name": "keyword.control.netlinx"
+            },
+            "2": {
+              "name": "storage.type.intrinsic.netlinx"
+            },
+            "3": {
+              "name": "entity.name.function.netlinx"
+            }
           }
         },
         {
@@ -447,27 +461,27 @@
         {
           "name": "keyword.control.netlinx",
           "match": "(?i)\\b(_WC_ENCODE_INT|_WC_DECODE_INT|_WC_INT|_WC_TO_CH_INT|_CH_TO_WC_INT|_WC_FIND_STRING_INT|_WC_LEFT_STRING_INT|_WC_LOWER_STRING_INT|_WC_MID_STRING_INT|_WC_REMOVE_STRING_INT|_WC_RIGHT_STRING_INT|_WC_UPPER_STRING_INT|_WC_COMPARE_STRING_INT|_WC_GET_BUFFER_CHAR_INT|_WC_GET_BUFFER_STRING_INT|_WC_CONCAT_STRING_INT|_WC_FILE_OPEN_INT|_WC_FILE_CLOSE_INT|_WC_FILE_READ_INT|_WC_FILE_READ_LINE_INT|_WC_FILE_WRITE_INT|_WC_FILE_WRITE_LINE_INT)\\b"
-		},
-		{
-			"name": "keyword.control.netlinx",
-			"match": "(?i)\\b(VALIDATE_NETLINX_ACCOUNT|AUDIT_NETLINX_SESSION_EVENT|AUDIT_NETLINX_GENERIC_EVENT|VALIDATE_NETLINX_ACCOUNT_WITH_PERMISSION|AUTHENTICATE_CERTIFICATE)\\b"
-		},
-		{
-			"name": "keyword.control.netlinx",
-			"match": "(?i)\\b(GET_AVAILABLE_FLASH_DISK_SPACE|GET_MAX_FLASH_DISK_SPACE)\\b"
-		},
-		{
-			"name": "keyword.control.netlinx",
-			"match": "(?i)\\b(DATA_CREATE_FEED|DATA_DELETE_FEED|DATA_PUBLISH_FEED|DATA_GET_PUBLISHED_FEED|DATA_ADD_RECORD|DATA_GET_EVENT_RECORD)\\b"
-		},
-		{
-			"name": "keyword.control.netlinx",
-			"match": "(?i)\\b(_WC_DATA_CREATE_FEED|_WC_DATA_ADD_RECORD|_WC_DATA_GET_EVENT_RECORD)\\b"
-		},
-		{
-			"name": "keyword.control.netlinx",
-			"match": "(?i)\\b(SSH_CLIENT_CLOSE|SSH_CLIENT_OPEN|TLS_CLIENT_CLOSE|TLS_CLIENT_OPEN)\\b"
-		}
+        },
+        {
+          "name": "keyword.control.netlinx",
+          "match": "(?i)\\b(VALIDATE_NETLINX_ACCOUNT|AUDIT_NETLINX_SESSION_EVENT|AUDIT_NETLINX_GENERIC_EVENT|VALIDATE_NETLINX_ACCOUNT_WITH_PERMISSION|AUTHENTICATE_CERTIFICATE)\\b"
+        },
+        {
+          "name": "keyword.control.netlinx",
+          "match": "(?i)\\b(GET_AVAILABLE_FLASH_DISK_SPACE|GET_MAX_FLASH_DISK_SPACE)\\b"
+        },
+        {
+          "name": "keyword.control.netlinx",
+          "match": "(?i)\\b(DATA_CREATE_FEED|DATA_DELETE_FEED|DATA_PUBLISH_FEED|DATA_GET_PUBLISHED_FEED|DATA_ADD_RECORD|DATA_GET_EVENT_RECORD)\\b"
+        },
+        {
+          "name": "keyword.control.netlinx",
+          "match": "(?i)\\b(_WC_DATA_CREATE_FEED|_WC_DATA_ADD_RECORD|_WC_DATA_GET_EVENT_RECORD)\\b"
+        },
+        {
+          "name": "keyword.control.netlinx",
+          "match": "(?i)\\b(SSH_CLIENT_CLOSE|SSH_CLIENT_OPEN|TLS_CLIENT_CLOSE|TLS_CLIENT_OPEN)\\b"
+        }
       ]
     },
     "storage_netlinx": {
@@ -478,9 +492,15 @@
           "comment": "Full variable or constant definition line",
           "match": "(?i)^\\s*\\b(CONSTANT|NON_VOLATILE|VOLATILE|PERSISTENT|LOCAL_VAR|STACK_VAR)?\\b\\s*(DEV|DEVCHAN|DEVLEV|CHAR|WIDECHAR|INTEGER|SINTEGER|LONG|SLONG|FLOAT|DOUBLE)\\b(?:[ \\[])?\\s*([\\w]+)(?:\\[[a-zA-Z0-9_]*\\])*(?:[ =\\t]+)*",
           "captures": {
-            "1" : { "name": "storage.modifier.netlinx" },
-            "2" : { "name": "storage.type.intrinsic.netlinx" },
-            "3" : { "name": "variable.other.netlinx" }
+            "1": {
+              "name": "storage.modifier.netlinx"
+            },
+            "2": {
+              "name": "storage.type.intrinsic.netlinx"
+            },
+            "3": {
+              "name": "variable.other.netlinx"
+            }
           }
         }
       ]

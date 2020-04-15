@@ -4,25 +4,8 @@ the extension, please open your VSCode Settings (CTRL-Comma) and search for Netl
 
 ## Use CTRL+SHIFT+B to compile your Netlinx code
 
-## New in this release (0.5.0):
-* Added a second build task for compiling with local files only, ignoring the global folders.
-* Removed context shortcut and keyboard shortcut to compile the current file. Please use the Build tasks noted above.
-* Complete rewrite of the beautifier indentation code. Should be much more reliable now.
-
-## Patch 0.5.4
-* Fixed beautifier finding false positives inside string literals
-
-## Patch 0.5.3
-* More code beautifier tweaking
-
-## Patch 0.5.2
-* Updated Netlinx grammar with most recent Netlinx.AXI constants and function names
-* Updated grammar types to get better theme integration support
-* Added .LIB file extension support
-
-## Patch 0.5.1
-* Updated Netlinx grammar for compiler directives and keywords (jwjames83)
-* Snippet updates (sentry07)
+## New in this release (0.6.0):
+* Added a document formatter provider. Use the context menu to select Format Document. You can also enable "Format on Save" in VSCode settings.
 
 ## Known Issues
 * Single line code blocks without {} brackets will not be detected by the code beautifier and will not be indented properly
@@ -40,7 +23,6 @@ the extension, please open your VSCode Settings (CTRL-Comma) and search for Netl
 
 This extension contributes the following commands:
 
-* `extension.netlinx_format`: Fixes the block indentation of the currently open file (code beautifier).
 * `extension.netlinx_compile`: Compiles the currently open AXS file.
 * `extension.netlinx_help`: Opens the AMX Netlinx help reference file.
 * `extension.netlinx_diag`: Opens the AMX Netlinx Diagnostics executable (if installed).
