@@ -1,6 +1,5 @@
 This is a language package for programming AMX Netlinx control systems. It has syntax highlighting, a code beautifier, snippets for a lot of Netlinx
-functions and code blocks, build tasks to compile your code, and shortcuts for the AMX programming help file, Netlinx Diagnostics, and the File Transfer utility. After installing
-the extension, please open your VSCode Settings (CTRL-Comma) and search for Netlinx and verify/update the locations in there.
+functions and code blocks, build tasks to compile your code, and shortcuts for the AMX programming help file, Netlinx Diagnostics, and the File Transfer utility. After installing the extension, please open your VSCode Settings (CTRL-Comma) and search for Netlinx and verify/update the locations in there.
 
 ## Use CTRL+SHIFT+B to compile your Netlinx code
 
