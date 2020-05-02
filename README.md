@@ -4,7 +4,8 @@ functions and code blocks, build tasks to compile your code, and shortcuts for t
 ## Use CTRL+SHIFT+B to compile your Netlinx code
 
 ## New in this release (0.6.0):
-* Added a document formatter provider. Use the context menu to select Format Document. You can also enable "Format on Save" in VSCode settings.
++ Added a document formatter provider. Use the context menu to select Format Document. You can also enable "Format on Save" in VSCode settings.
+* (0.6.1) Changed AXI file extension to be Netlinx Source so it can be compiled as well.
 
 ## Known Issues
 * Single line code blocks without {} brackets will not be detected by the code beautifier and will not be indented properly
@@ -22,7 +23,6 @@ functions and code blocks, build tasks to compile your code, and shortcuts for t
 
 This extension contributes the following commands:
 
-* `extension.netlinx_compile`: Compiles the currently open AXS file.
 * `extension.netlinx_help`: Opens the AMX Netlinx help reference file.
 * `extension.netlinx_diag`: Opens the AMX Netlinx Diagnostics executable (if installed).
 * `extension.netlinx_transfer`: Opens the AMX File Transfer Utility (if installed).
@@ -48,13 +48,11 @@ This extension contributes the following settings:
 All commands are added to the right click context menu of the editor tab, and the following keybindings have been added.
 
 * `ctrl+shift+F1`: Opens Netlinx Help
-* `ctrl+shift+F2`: Runs Netlinx Code Beautifier
 * `ctrl+shift+F3`: Opens Netlinx Diagnostics
 * `ctrl+shift+F4`: Opens File Transfer Utility
 * `ctrl+shift+F5`: Opens Global Includes Folder in Workspace
 * `ctrl+shift+F6`: Opens Global Libraries Folder in Workspace
 * `ctrl+shift+F7`: Opens Global Modules Folder in Workspace
-* `ctrl+F12`: Compiles current file.
 
 ## Notes
 
