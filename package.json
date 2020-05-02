@@ -2,7 +2,7 @@
 	"name": "amx-netlinx",
 	"displayName": "AMX Netlinx",
 	"description": "Extension for AMX Netlinx. Includes syntax highlighting and compiling.",
-	"version": "0.6.0",
+	"version": "0.6.1",
 	"publisher": "sentry07",
 	"icon": "netlinx.png",
 	"repository": {
@@ -27,7 +27,7 @@
 		"onCommand:extension.netlinx_openmodulefolder",
 		"onCommand:workbench.action.tasks.runTask",
 		"onLanguage:netlinx-source",
-		"onLanguage:netlinx-include"
+		"onLanguage:netlinx-library"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -114,7 +114,7 @@
 				{
 					"command": "extension.netlinx_help",
 					"group": "navigation@1",
-					"when": "resourceLangId == netlinx-include"
+					"when": "resourceLangId == netlinx-library"
 				},
 				{
 					"command": "extension.netlinx_diag",
@@ -124,7 +124,7 @@
 				{
 					"command": "extension.netlinx_diag",
 					"group": "navigation@2",
-					"when": "resourceLangId == netlinx-include"
+					"when": "resourceLangId == netlinx-library"
 				},
 				{
 					"command": "extension.netlinx_transfer",
@@ -134,7 +134,7 @@
 				{
 					"command": "extension.netlinx_transfer",
 					"group": "navigation@3",
-					"when": "resourceLangId == netlinx-include"
+					"when": "resourceLangId == netlinx-library"
 				},
 				{
 					"command": "extension.netlinx_openincludefolder",
@@ -144,7 +144,7 @@
 				{
 					"command": "extension.netlinx_openincludefolder",
 					"group": "z_commands@1",
-					"when": "resourceLangId == netlinx-include"
+					"when": "resourceLangId == netlinx-library"
 				},
 				{
 					"command": "extension.netlinx_openlibraryfolder",
@@ -154,7 +154,7 @@
 				{
 					"command": "extension.netlinx_openlibraryfolder",
 					"group": "z_commands@2",
-					"when": "resourceLangId == netlinx-include"
+					"when": "resourceLangId == netlinx-library"
 				},
 				{
 					"command": "extension.netlinx_openmodulefolder",
@@ -164,7 +164,7 @@
 				{
 					"command": "extension.netlinx_openmodulefolder",
 					"group": "z_commands@3",
-					"when": "resourceLangId == netlinx-include"
+					"when": "resourceLangId == netlinx-library"
 				}
 			]
 		},
@@ -177,7 +177,7 @@
 			{
 				"command": "extension.netlinx_openmodulefolder",
 				"key": "ctrl+shift+f7",
-				"when": "resourceLangId == netlinx-include"
+				"when": "resourceLangId == netlinx-library"
 			},
 			{
 				"command": "extension.netlinx_openlibraryfolder",
@@ -187,7 +187,7 @@
 			{
 				"command": "extension.netlinx_openlibraryfolder",
 				"key": "ctrl+shift+f6",
-				"when": "resourceLangId == netlinx-include"
+				"when": "resourceLangId == netlinx-library"
 			},
 			{
 				"command": "extension.netlinx_openincludefolder",
@@ -197,7 +197,7 @@
 			{
 				"command": "extension.netlinx_openincludefolder",
 				"key": "ctrl+shift+f5",
-				"when": "resourceLangId == netlinx-include"
+				"when": "resourceLangId == netlinx-library"
 			},
 			{
 				"command": "extension.netlinx_transfer",
@@ -207,7 +207,7 @@
 			{
 				"command": "extension.netlinx_transfer",
 				"key": "ctrl+shift+f4",
-				"when": "resourceLangId == netlinx-include"
+				"when": "resourceLangId == netlinx-library"
 			},
 			{
 				"command": "extension.netlinx_diag",
@@ -217,7 +217,7 @@
 			{
 				"command": "extension.netlinx_diag",
 				"key": "ctrl+shift+f3",
-				"when": "resourceLangId == netlinx-include"
+				"when": "resourceLangId == netlinx-library"
 			},
 			{
 				"command": "extension.netlinx_help",
@@ -227,29 +227,27 @@
 			{
 				"command": "extension.netlinx_help",
 				"key": "ctrl+shift+f1",
-				"when": "resourceLangId == netlinx-include"
+				"when": "resourceLangId == netlinx-library"
 			}
 		],
 		"languages": [
 			{
 				"id": "netlinx-source",
 				"aliases": [
-					"AMX-AXS",
-					"netlinx"
+					"AMX Netlinx Source"
 				],
 				"extensions": [
-					".axs"
+					".axs",
+					".axi"
 				],
 				"configuration": "./language-configuration.json"
 			},
 			{
-				"id": "netlinx-include",
+				"id": "netlinx-library",
 				"aliases": [
-					"AMX-AXI",
-					"netlinx"
+					"AMX Netlinx Library"
 				],
 				"extensions": [
-					".axi",
 					".axb",
 					".lib"
 				],
@@ -263,7 +261,7 @@
 				"path": "./syntaxes/amx-netlinx.tmLanguage.json"
 			},
 			{
-				"language": "netlinx-include",
+				"language": "netlinx-library",
 				"scopeName": "source.netlinx",
 				"path": "./syntaxes/amx-netlinx.tmLanguage.json"
 			}
@@ -274,7 +272,7 @@
 				"path": "./snippets/snippets.json"
 			},
 			{
-				"language": "netlinx-include",
+				"language": "netlinx-library",
 				"path": "./snippets/snippets.json"
 			}
 		],
@@ -314,7 +312,7 @@
 				},
 				"editor.snippetSuggestions": "top"
 			},
-			"[netlinx-include]": {
+			"[netlinx-library]": {
 				"editor.wordBasedSuggestions": true,
 				"editor.suggest.snippetsPreventQuickSuggestions": false,
 				"editor.quickSuggestions": {
