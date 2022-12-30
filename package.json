@@ -335,7 +335,7 @@
 		"@types/node": "^11.15.53",
 		"tslint": "^5.14.0",
 		"typescript": "^3.9.9",
-		"vsce": "^1.88.0",
+		"vsce": "^2.15.0",
 		"vscode": "^1.1.37"
 	},
 	"__metadata": {
